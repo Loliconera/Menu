@@ -1,0 +1,16 @@
+{
+    "name": "menu",
+    "author": "HSDN",
+    "description": "Menu",
+    "options": {
+        "cliName": "Menu",
+        "guiName": "Menu",
+        "settingsVersion": 2,
+        "settingsFile": "config.json",
+        "settingsMigrator": "settings_migrator.js",
+        "reloadable": true
+    },
+    "servers": ["https://raw.githubusercontent.com/Loliconera/Menu/master/"],
+    "version": "v100",
+    "disableAutoUpdate": false
+}
