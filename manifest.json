@@ -1,0 +1,41 @@
+{
+    "files": {
+        "README.md": "85d8f58b0396186be0ddae0162702c5953236af35ec30d1919b2c6e3b5f13d40",
+        "config.json": "b2fb73a902ed90cfc43424cfcd4c3263b54835587e4319e5b162e3a78193c55a",
+        "index.js": "41316ae6f8a45989f3060d2ad7cbb06ddf126f629083d86e5e2540926258a654",
+        "menu.js": "da984329c21b6d09bf8cac30488c0fa6ae5fdba5a7839d37f6b4017a94ba295b",
+        "module.json": "a1f5c1454e5d6b08f40eb02408f1903a620ef6d5089bd347e62b2b988a42498c",
+        "node_modules/moment-timezone/data/meta/latest.json": "1574fc70d8fd2554031aed90b1424371d6775bd9c0cab5cbd20e04753984f501",
+        "node_modules/moment-timezone/data/packed/latest.json": "ccdc6aa04df161122e948b89e0629618094a55fe7e03a70cf88952f823273b2b",
+        "node_modules/moment-timezone/index.js": "b93bc1a0ab15d56e12f0e281bf005d39166952d9208b828e8d056563f3ff1fd1",
+        "node_modules/moment-timezone/moment-timezone.js": "183f03352f1e65da2130b89bced0e02d59bdff8a20eb844d98a803462ec99b4c",
+        "node_modules/moment/index.js": "f0075677245792b113c801a56bd36682461596ac3830e1d1eac2499ad1460184",
+        "settings_migrator.js": "3b50b327ac16b303143c79714d77a337a803c2048bddb1564abf9b8bc374964e"
+    },
+    "defs": {
+        "C_ADMIN": 1,
+        "C_CONFIRM_UPDATE_NOTIFICATION": 1,
+        "C_DISMISS_PARTY": 1,
+        "C_LEAVE_PARTY": 1,
+        "C_PLAYER_LOCATION": 5,
+        "C_REQUEST_CONTRACT": 50,
+        "C_RESET_ALL_DUNGEON": 1,
+        "C_RETURN_TO_LOBBY": 1,
+        "C_START_SKILL": 7,
+        "C_USE_ITEM": 3,
+        "C_USE_PREMIUM_SLOT": 1,
+        "S_ANNOUNCE_UPDATE_NOTIFICATION": 1,
+        "S_DIALOG": 2,
+        "S_EXIT": [3,"raw"],
+        "S_LOAD_TOPO": ["raw",3],
+        "S_NPC_MENU_SELECT": 1,
+        "S_PREMIUM_SLOT_DATALIST": 2,
+        "S_PREMIUM_SLOT_OFF": "raw",
+        "S_REQUEST_CONTRACT": 1,
+        "S_RETURN_TO_LOBBY": "raw",
+        "S_SPAWN_ME": 3,
+        "S_SPAWN_NPC": 11,
+        "S_START_ACTION_SCRIPT": 3,
+        "S_VISIT_NEW_SECTION": 1
+    }
+}
