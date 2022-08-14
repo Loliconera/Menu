@@ -3,8 +3,8 @@
     "author": "HSDN",
     "description": "Menu",
     "options": {
-        "cliName": "Menu",
-        "guiName": "Menu",
+        "cliName": "Menu GUI",
+        "guiName": "Menu GUI",
         "settingsVersion": 2,
         "settingsFile": "config.json",
         "settingsMigrator": "settings_migrator.js",
