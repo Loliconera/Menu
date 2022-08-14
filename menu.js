@@ -124,7 +124,7 @@ module.exports.categories = {
 	],	
 	"Tera Guía": [
 		{ command: "guia", name: "On/Off", color: c.o },
-		{ command: "guia gui", name: "Configuración", ifcmd: "guia" },
+		{ command: "guia ui", name: "Configuración", ifcmd: "guia" },
 		{ command: "guia voice", name: "Texto a Voz", color: c.y, ifcmd: "guia" },
 		{ command: "guia spawnObject", name: "Objetos", color: c.y, ifcmd: "guia" },
 		{ command: "guia stream", name: "Stream", color: c.lb, ifcmd: "guia" },
