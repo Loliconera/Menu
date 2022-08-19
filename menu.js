@@ -73,7 +73,7 @@ module.exports.categories = {
 		"Principal": [
 		{ command: "tp zone", name: "Teleport", color: c.b, ifcmd: "tp" },
 		{ command: "tp to", name: "Zona", color: c.r, ifcmd: "tp" },
-		{ command: "m $Dang", name: "Dungeons", color: c.y, ifnocmd: "dg" },
+		{ command: "m $Dung", name: "Dungeons", color: c.y, ifnocmd: "dg" },
 		{ command: "dg", name: "Dungeons", color: c.y, ifcmd: "dg" },
 		{ command: "box", name: "OpenBox", color: c.v, ifcmd: "box" },
 		{ ifcmd: "tp"},
@@ -92,8 +92,7 @@ module.exports.categories = {
 		{ command: "wb stop", name: "Detener", color: c.r, ifcmd: "bh" },
 		{ command: "wb loc", name: "Ubicaciones", color: c.b, ifcmd: "bh" },
 		],
-	"Módulos": [		
-		{ command: "m $Loger", name: "$$$$$$$$", color: c.r, ifcmd: "valkyrie", ifcmd: "sorc", ifcmd: "ninja", ifcmd: "brawl", ifcmd: "mb", ifcmd: "logc", ifcmd: "arcane" },
+	"Módulos": [
 		{ command: "pot", name: "AutoPot", color: c.lb, ifcmd: "pot" },
 		{ command: "camera", name: "CameraControl", color: c.g, ifcmd: "camera" },
 		{ command: "u ui", name: "Unicast", color: c.p, ifcmd: "u" },
@@ -122,8 +121,8 @@ module.exports.categories = {
 		{ command: "tp drop -1", name: "Suicidarte", color: c.r, ifcmd: "tp" },
 	],	
 	"Guía (Tera-Guía)": [
-		{ command: "guia", name: "on/off", color: c.o },
-		{ command: "guia ui", name: "Gui", ifcmd: "guia" },
+		{ command: "guia", name: "On/off", color: c.o },
+		{ command: "guia ui", name: "GUI", ifcmd: "guia" },
 		{ command: "guia voice", name: "Texto a Voz (TTS)", color: c.y, ifcmd: "guia" },
 		{ command: "guia spawnObject", name: "Objetos", color: c.y, ifcmd: "guia" },
 		{ command: "guia stream", name: "Stream", color: c.lb, ifcmd: "guia" },
@@ -131,11 +130,14 @@ module.exports.categories = {
 		{ command: "m $Lang", name: "Idioma", color: c.g, ifcmd: "guia" },
 		{ command: "m $Gender", name: "Género", color: c.p, ifcmd: "guia" },
 		{ command: "guia help", name: "Ayuda", color: c.y, ifcmd: "guia" },
-		{ command: "guia debug ui", name: "Debug", color: c.r, ifcmd: "guia" },		
+		{ command: "guia debug ui", name: "Debug", color: c.r, ifcmd: "guia" },
+	],	
+	"Debug": [
+		{ command: "npcsummoner", name: "Debug_NPC", color: c.y, ifcmd: "npcsummoner" },
 	],
 };
 module.exports.pages = {
-    "Dang": {		
+    "Dung": {		
 		"Teletransportarse a las dungeons": [
 		{ command: "m et 1106 9027", name: "Manaya's Core", color: c.r },
 		{},
@@ -206,9 +208,9 @@ module.exports.pages = {
 	]
 },
  "Merchant": {
-	"Mstyery-Merchant": [
+	"Mystery-Merchant": [
 		{ command: "m et 98311 9069", name: "Highwatch", color: c.o,},
-		{ command: "mm", name: "Mstyery-Merchant", color: c.y, ifcmd: "bh" },
+		{ command: "mm", name: "Mystery-Merchant", color: c.y, ifcmd: "bh" },
 		{ command: "mm scan", name: "Búsqueda", color: c.g, ifcmd: "bh" },
 		{ command: "mm stop", name: "Detener", color: c.r, ifcmd: "bh" },
 		{ command: "mm loc", name: "Ubicaciónes", color: c.b, ifcmd: "bh" },
@@ -331,42 +333,22 @@ module.exports.pages = {
 		{ command: "locarnum1", name: "Locarnum (Аргония / Канстрия)", color: c.o },
 		{},
 		{ command: "locarnum2", name: "Locarnum (Гранаркус)", color: c.o },
-	],
- },
- "Loger":{
-	"$Mod$": [
-		{ command: "valkyrie", name: "Fast-Valk", color: c.o, ifcmd: "valkyrie", class: "glaiver" },
-	],
-	"Loger": [
-		{ command: "proxy reload packetslogger", name: "Recarga del registrador", color: c.p, ifcmd: "logs" },
-		{ ifcmd: "logs"},
-		{ command: "logc", name: "LOG C", color: c.bl, ifcmd: "logc" },
-		{ command: "logs", name: "LOG S", color: c.o, ifcmd: "logs" },
-		{ ifcmd: "logs"},
-		{ command: "lograw 1", name: "Raw on ", color: c.g, ifcmd: "logs" },
-		{ command: "lograw 0", name: "Raw off", color: c.r, ifcmd: "logs" },
-	//	{ command: "logpaste", name: "Pegar", color: c.y, ifcmd: "logs" },
-		{ ifcmd: "logs"},
-		{ command: "sr", name: "Reemplazo on/off", color: c.g, ifcmd: "sr" },
-		{ command: "sr r", name: "Recarga de reemplazo", color: c.r, ifcmd: "sr" },
-		{ command: "rs", name: "Reemplazo on/off", color: c.g, ifcmd: "rs" },
-		{ command: "rs reload", name: "Recarga de reemplazo", color: c.r, ifcmd: "rs" },
-		{},		
-		{ command: "npcsummoner", name: "Depuración_NPC", color: c.y, ifcmd: "npcsummoner" },
 	]
- },
-    "Lang": {		
-		"Cambiar el idioma": [
+},
+ "Lang": {		
+	"Cambiar el idioma": [
+		{ command: "guia auto", name: "Auto", color: c.w, ifcmd: "guia" },
+		{},
 		{ command: "guia en", name: "Ingles", color: c.b, ifcmd: "guia" },
 		{},
 		{ command: "guia es", name: "Español", color: c.g, ifcmd: "guia" },
 	]
- },
- 	"Gender": {		
-		"Cambiar Género de voz": [
+},
+ "Gender": {		
+	"Cambiar Género de voz": [
 		{ command: "guia male", name: "Masculino", color: c.g, ifcmd: "guia" },
 		{},
 		{ command: "guia female", name: "Femenino", color: c.p, ifcmd: "guia" },
 	]
- }
+  }
 };
