@@ -57,7 +57,7 @@
             "guard": {
                 "type": 49,
                 "value": 6112,
-                "gameId": null,
+                "gameId": 3518437209085505,
                 "templateId": 6112,
                 "huntingZoneId": 63
             },
@@ -85,7 +85,7 @@
             "vstore": {
                 "type": 9,
                 "value": 600,
-                "gameId": null,
+                "gameId": 3518437209096643,
                 "templateId": 1146,
                 "huntingZoneId": 63
             },
