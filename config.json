@@ -92,28 +92,28 @@
             "acraft": {
                 "type": 9,
                 "value": 193,
-                "gameId": null,
+                "gameId": 3518437209194865,
                 "templateId": 2013,
                 "huntingZoneId": 183
             },
             "scraft": {
                 "type": 9,
                 "value": 190,
-                "gameId": null,
+                "gameId": 3518437209221613,
                 "templateId": 2006,
                 "huntingZoneId": 183
             },
             "pcraft": {
                 "type": 9,
                 "value": 191,
-                "gameId": null,
+                "gameId": 3518437209213112,
                 "templateId": 2008,
                 "huntingZoneId": 183
             },
             "ecraft": {
                 "type": 9,
                 "value": 192,
-                "gameId": null,
+                "gameId": 3518437209197675,
                 "templateId": 2011,
                 "huntingZoneId": 183
             },

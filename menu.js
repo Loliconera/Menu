@@ -167,7 +167,7 @@ module.exports.pages = {
  "Merchant": {
 	"": [
 		{ command: "m et 98311 9069", name: "Highwatch", color: c.o,},
-		{ command: "mm", name: "Tiempo de reaparición", color: c.y, ifcmd: "bh" },
+		{ command: "mm", name: "Mystery-Merchant", color: c.y, ifcmd: "bh" },
 		{ command: "mm scan", name: "Búsqueda", color: c.g, ifcmd: "bh" },
 		{ command: "mm stop", name: "Detener", color: c.r, ifcmd: "bh" },
 		{ command: "mm loc", name: "Ubicaciónes", color: c.b, ifcmd: "bh" },

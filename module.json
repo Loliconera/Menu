@@ -1,7 +1,7 @@
 {
-    "name": "Menú Español",
+    "name": "proxy-menu",
     "author": " ‍‍‍‍<font color='#02fa02'>HSDN</font> ‍‍‍‍ / ‍‍‍‍<font color='#FC0FC0'>Loliconera</font>",
-    "description": "Muentras un menú grafico con muchas opciones utiles",
+    "description": "Muentras un menú con interfaz grafica con muchas opciones utiles",
     "options": {
         "cliName": "Menú GUI",
         "guiName": "<font color='#FFE900'><b>Menú GUI</b></font> ‍‍‍‍ ",
