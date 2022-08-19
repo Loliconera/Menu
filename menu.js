@@ -7,21 +7,21 @@ const c = {
 	"br": "#bc8f8f", // Marrón
 	"o": "#ffc6d00", // Naranja
 	"p": "#ed5d92", // Rosado
-	"lp": "#ffb7c5", // Rosado-Claro
+	"lp": "#ffb7c5", // Rosa claro
 	"r": "#ff0606", // Rojo
 	"g": "#f04ff1c", // Verde
-	"lg": "#f4ee35d", // Verde-Claro
+	"lg": "#f4ee35d", // Verde claro
 	"v": "#f8f127e", // Violeta
-	"lv": "#f9f00d4", // Violeta-Claro
+	"lv": "#f9f00d4", // Violeta claro
 	"b": "#f004eff", // Azul
-	"lb": "#08b3e5", // Azul-Claro
+	"lb": "#08b3e5", // Azul claro
 	"gr": "#778899", // Gris
 	"y": "#fdff00", // Amarillo
 };
 
-// Claves de registro disponibles:
-//   name    -- El nombre del elemento del menú
-//   color   -- El color del elemento del menú
+// Teclas de escritura disponibles:
+//   name    -- Nombre del elemento del menú
+//   color   -- Color del elemento del menú
 //   keybind -- Configuración de teclas de acceso rápido
 //   ifcmd   -- Filtrar (mostrar) un elemento de menú si se encuentra el comando especificado
 //   ifnocmd -- Filtrar (mostrar) un elemento del menú si no se encuentra el comando especificado
@@ -30,10 +30,10 @@ const c = {
 //                  elementalist, soulless, engineer, fighter, assassin, glaiver
 //
 // Comandos incorporados:
-//   mm et  [quest] [instance] -- Teletransportación de vanguardia (Presionando la tecla H)
-//   mm use [id Artículo]      -- Usar artículo del inventario
+//   mm et  [quest] [instance] -- Teletransportación de vanguardia
+//   mm use [id Artículos]      -- Usar artículo del inventario
 
-// Configuración de Comerciantes premium
+// Configuración de tragamonedas premium
 module.exports.premium = [
 	// { command: "bank", id: 60264 },
 	// { command: "broker", id: 60265 },
@@ -47,13 +47,12 @@ module.exports.categories = {
 		{ command: "pbank", name: "Banco de Mascota", color: c.lp },
 		{ command: "cbank", name: "Banco de Ropas", color: c.lp },
 		{ command: "gbank", name: "Banco de Guild", color: c.lp },
-		{},
 		{ command: "ab", name: "Auto Banco", color: c.p, ifcmd: "ab" },
 		{},
 		{ command: "broker", name: "Broker", color: c.lb },
 		{ command: "store", name: "Merchant", color: c.g },
-		{ command: "sstore", name: "Specialty Store", color: c.g },
-		{ command: "ssstore", name: "Magic Material", color: c.lg },
+		{ command: "sstore", name: "Specialty", color: c.g },
+		{ command: "ssstore", name: "Magic", color: c.lg },
 		{ command: "bel", name: "Belicarium", color: c.v },
 		{},
 		{ command: "vng", name: "Vanguard", color: c.b },
@@ -66,43 +65,35 @@ module.exports.categories = {
 		{ command: "scraft", name: "Smelting", color: c.y },
 		{ command: "pcraft", name: "Processing", color: c.y },
 		{ command: "ecraft", name: "Etching", color: c.y },
-		{ command: "fstore", name: "Food", color: c.y },
+		{ command: "fstore", name: "Food", color: c.y },		
+		{ command: "m $Merchant", name: "Comerciante", color: c.o, ifcmd: "bh" },
 		{},
-		{ command: "muhrak", name: "Muhrak", color: c.r },
+		{ command: "muhrak", name: "Muhrak", color: c.r },		
 	],
-	"Principal": [
+		"Principal": [
 		{ command: "tp zone", name: "Teleport", color: c.b, ifcmd: "tp" },
 		{ command: "tp to", name: "Zona", color: c.r, ifcmd: "tp" },
 		{ command: "m $Dang", name: "Dungeons", color: c.y, ifnocmd: "dg" },
 		{ command: "dg", name: "Dungeons", color: c.y, ifcmd: "dg" },
 		{ command: "box", name: "OpenBox", color: c.v, ifcmd: "box" },
-		{ command: "m $Merchant", name: "Merchants", color: c.o },
-		{ifcmd: "tp"},
-	//	{ command: "tp back", name: "Cancelar tp", color: c.o, ifcmd: "tp" },
-		{ command: "tp blink 100", name: "TP Adelante", ifcmd: "tp" },
-		{ command: "tp up 500", name: "TP Arriba", ifcmd: "tp" },
-		{ command: "tp down 250", name: "TP Abajo", ifcmd: "tp" },
-		{ command: "tp drop -1", name: "Suicidarte", color: c.r, ifcmd: "tp" },
-		{ifcmd: "tp"},
-		{ command: "translate send", name: "AutoTraducir", color: c.lb, ifcmd: "translate" },
+		{ ifcmd: "tp"},
+		{ command: "translate send", name: "Autotraducir", color: c.lb, ifcmd: "translate" },
 		{ command: "food", name: "AutoFood", color: c.p, ifcmd: "food" },
 		{ command: "loot auto", name: "AutoLoot", color: c.lp, ifcmd: "loot" },
-		{ command: "cc", name: "AntiCC", color: c.lp, ifcmd: "cc" },
-		{ command: "ar", name: "AutoRetaliate", color: c.lp, ifcmd: "ar" },
-		{ifcmd: "bh"},
+		{ ifcmd: "bh"},
 		{ command: "mm", name: "Mystery-Merchant", color: c.y, ifcmd: "bh" },
 		{ command: "mm scan", name: "Búsqueda", color: c.o, ifcmd: "bh" },
 		{ command: "mm stop", name: "Detener", color: c.r, ifcmd: "bh" },
 		{ command: "mm loc", name: "Ubicaciones", color: c.b, ifcmd: "bh" },
 		{ command: "bh move", name: "Teleport al npc", color: c.lg, ifcmd: "tr" },
-	    {ifcmd: "bh"},
+	    { ifcmd: "bh"},
 		{ command: "wb", name: "World-Boss", color: c.lb, ifcmd: "bh" },
 		{ command: "wb scan", name: "Búsqueda", color: c.o, ifcmd: "bh" },
 		{ command: "wb stop", name: "Detener", color: c.r, ifcmd: "bh" },
 		{ command: "wb loc", name: "Ubicaciones", color: c.b, ifcmd: "bh" },
 		],
-	"Módulos": [
-		{ command: "m $Loger", name: "$$$$$$$$", color: c.r, ifcmd: "valkyrie", ifcmd: "sorc", ifcmd: "aoe", ifcmd: "logc" },
+	"Módulos": [		
+		{ command: "m $Loger", name: "$$$$$$$$", color: c.r, ifcmd: "valkyrie", ifcmd: "sorc", ifcmd: "ninja", ifcmd: "brawl", ifcmd: "mb", ifcmd: "logc", ifcmd: "arcane" },
 		{ command: "pot", name: "AutoPot", color: c.lb, ifcmd: "pot" },
 		{ command: "camera", name: "CameraControl", color: c.g, ifcmd: "camera" },
 		{ command: "u ui", name: "Unicast", color: c.p, ifcmd: "u" },
@@ -112,19 +103,27 @@ module.exports.categories = {
 	"Misceláneas": [
 		{ command: "m drop", name: "Salir del grupo", color: c.y },
 		{ command: "m reset", name: "Reiniciar", color: c.g },
-		{ command: "m lobby", name: "Selección de Personajes", color: c.p },
-		{},				
+		{ command: "m lobby", name: "Selección de personajes", color: c.p },
 		{ command: "m exit", name: "Salida Rápida", color: c.r },
+		{},		
 		{ command: "m et 98311 9069", name: "Highwatch", color: c.o,},	
 		{ command: "invg", name: "Auto Guild", color: c.lg, ifcmd: "invg" },
 		{ command: "lfg", name: "Auto LFG", color: c.lg, ifcmd: "lfg" },
-		{ifcmd: "drk"},
+		{ifcmd: "cc", ifcmd: "ar"},
+		{ command: "cc", name: "AntiCC", color: c.lp, ifcmd: "cc" },
+		{ command: "ar", name: "AutoRetaliate", color: c.lp, ifcmd: "ar" },
+		{ ifcmd: "drk"},		
 		{ command: "drk", name: "Alas de Darkan", color: c.p, ifcmd: "drk" },
-		
+		{ ifcmd: "tp"},		
+	//	{ command: "tp back", name: "Cancelar tp", color: c.o, ifcmd: "tp" },
+		{ command: "tp blink 100", name: "TP Adelante", ifcmd: "tp" },
+		{ command: "tp up 500", name: "TP Arriba", ifcmd: "tp" },
+		{ command: "tp down 250", name: "TP Abajo", ifcmd: "tp" },
+		{ command: "tp drop -1", name: "Suicidarte", color: c.r, ifcmd: "tp" },
 	],	
-	"Tera Guía": [
-		{ command: "guia", name: "On/Off", color: c.o },
-		{ command: "guia ui", name: "Configuración", ifcmd: "guia" },
+	"Guía (Tera-Guía)": [
+		{ command: "guia", name: "on/off", color: c.o },
+		{ command: "guia ui", name: "GUI", ifcmd: "guia" },
 		{ command: "guia voice", name: "Texto a Voz", color: c.y, ifcmd: "guia" },
 		{ command: "guia spawnObject", name: "Objetos", color: c.y, ifcmd: "guia" },
 		{ command: "guia stream", name: "Stream", color: c.lb, ifcmd: "guia" },
@@ -133,7 +132,7 @@ module.exports.categories = {
 };
 module.exports.pages = {
     "Dang": {		
-		"Teleport a las Dungeons": [
+		"Teletransportarse a las dungeons": [
 		{ command: "m et 1106 9027", name: "Manaya's Core", color: c.r },
 		{},
 		{ command: "m et 2162 9044", name: "Bahaar's Sanctum", color: c.r },
@@ -166,6 +165,13 @@ module.exports.pages = {
 	]
 },
  "Merchant": {
+	"": [
+		{ command: "m et 98311 9069", name: "Highwatch", color: c.o,},
+		{ command: "mm", name: "Tiempo de reaparición", color: c.y, ifcmd: "bh" },
+		{ command: "mm scan", name: "Búsqueda", color: c.g, ifcmd: "bh" },
+		{ command: "mm stop", name: "Detener", color: c.r, ifcmd: "bh" },
+		{ command: "mm loc", name: "Ubicaciónes", color: c.b, ifcmd: "bh" },
+	],
 	"Neighborhood": [
 		{ command: "veracun", name: "Veracun (Velika)", color: c.y },
 		{},
@@ -285,36 +291,27 @@ module.exports.pages = {
 		{},
 		{ command: "locarnum2", name: "Locarnum (Гранаркус)", color: c.o },
 	],
-},
-"Loger":{
-   "$Mod$": [
-	   { command: "sorc", name: "Sorc on/off", color: c.r, ifcmd: "sorc", class: "sorcerer" },
-	   { command: "sorc ui", name: "Sorc", color: c.lb, ifcmd: "sorc", class: "sorcerer" },
-	   { command: "sorc automb", name: "Amp", color: c.o, ifcmd: "sorc", class: "sorcerer" },
-	   { command: "sorc autoimp", name: "Collapse", color: c.o, ifcmd: "sorc", class: "sorcerer" },
-	   { command: "sorc usebrooch", name: "Brooch", color: c.o, ifcmd: "sorc", class: "sorcerer" },
-	   { ifcmd: "sorc" },
-	   { command: "rod", name: "Rod", color: c.g, ifcmd: "rog", class: "priest" },
-	   { command: "aoe", name: "AOE", color: c.o, ifcmd: "aoe", class: "priest" },
-	   { command: "aoe distance 20", name: "AOE 20", color: c.v, ifcmd: "aoe", class: "priest" },
-	   { command: "aoe distance 100", name: "AOE 100", color: c.v, ifcmd: "aoe", class: "priest" },
-	   {ifcmd: "aoe", ifcmd: "rod"},
-	   { command: "valkyrie", name: "Fast-Valk", color: c.o, ifcmd: "valkyrie", class: "glaiver" },
-   ],
-"Loger": [
-   { command: "proxy reload packetslogger", name: "Recarga del registrador", color: c.p, ifcmd: "logs" },
-   {ifcmd: "logs"},
-   { command: "logc", name: "LOG C", color: c.bl, ifcmd: "logc" },
-   { command: "logs", name: "LOG S", color: c.o, ifcmd: "logs" },
-   {ifcmd: "logs"},
-   { command: "lograw 1", name: "Raw on ", color: c.g, ifcmd: "logs" },
-   { command: "lograw 0", name: "Raw off", color: c.r, ifcmd: "logs" },
-//	{ command: "logpaste", name: "Paste", color: c.y, ifcmd: "logs" },
-   {ifcmd: "logs"},
-   { command: "sr", name: "Skil Main on/off", color: c.g, ifcmd: "sr" },
-   { command: "sr r", name: "Skil Main reload", color: c.r, ifcmd: "sr" },
-   {ifcmd: "sr"},		
-   { command: "npcsummoner", name: "NPC_Debug", color: c.y, ifcmd: "npcsummoner" },
-	]
+ },
+ "Loger":{
+	"$Mod$": [
+		{ command: "valkyrie", name: "Fast-Valk", color: c.o, ifcmd: "valkyrie", class: "glaiver" },
+	],
+	"Loger": [
+		{ command: "proxy reload packetslogger", name: "Recarga del registrador", color: c.p, ifcmd: "logs" },
+		{ ifcmd: "logs"},
+		{ command: "logc", name: "LOG C", color: c.bl, ifcmd: "logc" },
+		{ command: "logs", name: "LOG S", color: c.o, ifcmd: "logs" },
+		{ ifcmd: "logs"},
+		{ command: "lograw 1", name: "Raw on ", color: c.g, ifcmd: "logs" },
+		{ command: "lograw 0", name: "Raw off", color: c.r, ifcmd: "logs" },
+	//	{ command: "logpaste", name: "Pegar", color: c.y, ifcmd: "logs" },
+		{ ifcmd: "logs"},
+		{ command: "sr", name: "Reemplazo on/off", color: c.g, ifcmd: "sr" },
+		{ command: "sr r", name: "Recarga de reemplazo", color: c.r, ifcmd: "sr" },
+		{ command: "rs", name: "Reemplazo on/off", color: c.g, ifcmd: "rs" },
+		{ command: "rs reload", name: "Recarga de reemplazo", color: c.r, ifcmd: "rs" },
+		{},		
+		{ command: "npcsummoner", name: "Depuración_NPC", color: c.y, ifcmd: "npcsummoner" },
+	 ]
 }
 };

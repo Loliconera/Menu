@@ -1,10 +1,10 @@
 {
-    "name": "menu",
-    "author": "HSDN",
-    "description": "Menu",
+    "name": "Menú Español",
+    "author": " ‍‍‍‍<font color='#02fa02'>HSDN</font> ‍‍‍‍ / ‍‍‍‍<font color='#FC0FC0'>Loliconera</font>",
+    "description": "Muentras un menú grafico con muchas opciones utiles",
     "options": {
-        "cliName": "Menu GUI",
-        "guiName": "Menu GUI",
+        "cliName": "Menú GUI",
+        "guiName": "<font color='#FFE900'><b>Menú GUI</b></font> ‍‍‍‍ ",
         "settingsVersion": 2,
         "settingsFile": "config.json",
         "settingsMigrator": "settings_migrator.js",

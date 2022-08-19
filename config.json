@@ -57,7 +57,7 @@
             "guard": {
                 "type": 49,
                 "value": 6112,
-                "gameId": 3518437208958746,
+                "gameId": null,
                 "templateId": 6112,
                 "huntingZoneId": 63
             },
@@ -85,35 +85,35 @@
             "vstore": {
                 "type": 9,
                 "value": 600,
-                "gameId": 3518437208959537,
+                "gameId": null,
                 "templateId": 1146,
                 "huntingZoneId": 63
             },
             "acraft": {
                 "type": 9,
                 "value": 193,
-                "gameId": 3518437208998118,
+                "gameId": null,
                 "templateId": 2013,
                 "huntingZoneId": 183
             },
             "scraft": {
                 "type": 9,
                 "value": 190,
-                "gameId": 3518437208995259,
+                "gameId": null,
                 "templateId": 2006,
                 "huntingZoneId": 183
             },
             "pcraft": {
                 "type": 9,
                 "value": 191,
-                "gameId": 3518437208998358,
+                "gameId": null,
                 "templateId": 2008,
                 "huntingZoneId": 183
             },
             "ecraft": {
                 "type": 9,
                 "value": 192,
-                "gameId": 3518437208995384,
+                "gameId": null,
                 "templateId": 2011,
                 "huntingZoneId": 183
             },

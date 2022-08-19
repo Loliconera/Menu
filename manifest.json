@@ -1,16 +1,16 @@
 {
     "files": {
         "README.md": "85d8f58b0396186be0ddae0162702c5953236af35ec30d1919b2c6e3b5f13d40",
-        "config.json": "b2fb73a902ed90cfc43424cfcd4c3263b54835587e4319e5b162e3a78193c55a",
-        "index.js": "41316ae6f8a45989f3060d2ad7cbb06ddf126f629083d86e5e2540926258a654",
-        "menu.js": "1f7f79cb7d014862531ec32c1b6417b0a1d616e291d6d8bb66847b45a49dce79",
-        "module.json": "a1f5c1454e5d6b08f40eb02408f1903a620ef6d5089bd347e62b2b988a42498c",
+        "config.json": "3e36c71c6743fd1870d0b1a786dc2412d5c9235298b831d49d0f6a58ebb673aa",
+        "index.js": "62133aa8051e97c43f00c34ee350c4d4672bb66242abcafe13767d7f4d34de39",
+        "menu.js": "e22e3204cb33b712c2d8ef5513fab7dff1f6a9997b154f4b5036e1804dab1e89",
+        "module.json": "3b7d1c858140172f43dac9c0646cd8c70050881ca9e006e2ccf5383e497b9b3e",
         "node_modules/moment-timezone/data/meta/latest.json": "1574fc70d8fd2554031aed90b1424371d6775bd9c0cab5cbd20e04753984f501",
         "node_modules/moment-timezone/data/packed/latest.json": "ccdc6aa04df161122e948b89e0629618094a55fe7e03a70cf88952f823273b2b",
         "node_modules/moment-timezone/index.js": "b93bc1a0ab15d56e12f0e281bf005d39166952d9208b828e8d056563f3ff1fd1",
         "node_modules/moment-timezone/moment-timezone.js": "183f03352f1e65da2130b89bced0e02d59bdff8a20eb844d98a803462ec99b4c",
         "node_modules/moment/index.js": "f0075677245792b113c801a56bd36682461596ac3830e1d1eac2499ad1460184",
-        "settings_migrator.js": "3b50b327ac16b303143c79714d77a337a803c2048bddb1564abf9b8bc374964e"
+        "settings_migrator.js": "36fcbd8959e6a0c80642feb54852a23768534849cf9e30ec9c750cce0d6e5182"
     },
     "defs": {
         "C_ADMIN": 1,
@@ -21,7 +21,6 @@
         "C_REQUEST_CONTRACT": 50,
         "C_RESET_ALL_DUNGEON": 1,
         "C_RETURN_TO_LOBBY": 1,
-        "C_START_SKILL": 7,
         "C_USE_ITEM": 3,
         "C_USE_PREMIUM_SLOT": 1,
         "S_ANNOUNCE_UPDATE_NOTIFICATION": 1,
@@ -35,7 +34,6 @@
         "S_RETURN_TO_LOBBY": "raw",
         "S_SPAWN_ME": 3,
         "S_SPAWN_NPC": 11,
-        "S_START_ACTION_SCRIPT": 3,
-        "S_VISIT_NEW_SECTION": 1
+        "S_START_ACTION_SCRIPT": 3
     }
 }

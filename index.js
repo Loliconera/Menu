@@ -194,7 +194,7 @@ module.exports = function ProxyMenu(mod) {
 		"$none": () => show(),
 		"premium": () => {
 			mod.settings.premiumSlotEnabled = !mod.settings.premiumSlotEnabled;
-			mod.command.message(`Add item to premium panel: ${mod.settings.premiumSlotEnabled ? "enabled" : "disabled"}`);
+			mod.command.message(`Agregar elemento al panel premium: ${mod.settings.premiumSlotEnabled ? "Activado" : "Desactivado"}`);
 		},
 		"lobby": () => {
 			mod.toServer('C_RETURN_TO_LOBBY', 1);
@@ -213,7 +213,7 @@ module.exports = function ProxyMenu(mod) {
 		},
 		"hotkey": arg => {
 			if (!arg) {
-				mod.command.message(`Current hotkey: ${mod.settings.hotkey}`);
+				mod.command.message(`Tecla de acceso rápido actual: ${mod.settings.hotkey}`);
 			} else {
 				if (arg.toLowerCase() !== mod.settings.hotkey.toLowerCase()) {
 					const hotkey = arg.toLowerCase().split("+").map(w => w[0].toUpperCase() + w.substr(1)).join("+");
@@ -224,17 +224,17 @@ module.exports = function ProxyMenu(mod) {
 						keybinds.delete(mod.settings.hotkey);
 						mod.settings.hotkey = hotkey;
 					} catch (e) {
-						return mod.command.message(`Invalid hotkey: ${hotkey}`);
+						return mod.command.message(`Tecla de acceso rápido no válida: ${hotkey}`);
 					}
 				}
-				mod.command.message(`New hotkey: ${mod.settings.hotkey}`);
+				mod.command.message(`Nueva tecla de acceso rápido: ${mod.settings.hotkey}`);
 			}
 		},
 		"use": id => useItem(id),
 		"et": (quest, instance) => eventTeleport(quest, instance),
 		"debug": () => {
 			debug = !debug;
-			mod.command.message(`Debug mode ${debug ? "enabled" : "disabled"}.`);
+			mod.command.message(`Modo de depuración ${debug ? "Activado" : "Desactivado"}.`);
 		},
 		"$default": arg => {
 			if (arg[0] === "$") {
@@ -249,7 +249,7 @@ module.exports = function ProxyMenu(mod) {
 
     mod.command.add("npcsummoner", () => {
 	    debug = !debug;
-	mod.command.message(`Module debug ${debug ? "enabled" : "disabled"}`);
+	mod.command.message(`Depuración del módulo ${debug ? "Activado" : "Desactivado"}`);
     });
 
 	mod.hook("S_EXIT", "raw", () => false);
@@ -288,7 +288,7 @@ module.exports = function ProxyMenu(mod) {
 
 		debugData = [];
 	});
-
+/*
 	mod.hook("S_VISIT_NEW_SECTION", 1, () => {
 		if (!mod.game.me.abnormalities ["5020006"] ) {
 	    mod.send('C_START_SKILL', 7,
@@ -301,7 +301,7 @@ module.exports = function ProxyMenu(mod) {
             "unk": true,}
 	)}
 	});
-
+*/
 	function show(page = null) {
 		const categories = menu.pages !== undefined && menu.pages[page] ? menu.pages[page] : menu.categories;
 		const tmpData = [];
@@ -413,7 +413,7 @@ module.exports = function ProxyMenu(mod) {
 		try {
 			array.forEach(data => {
 				if (body.length >= 16000)
-					throw "GUI data limit exceeded, some values may be missing.";
+					throw "Se excedió el límite de datos de GUI, es posible que falten algunos valores.";
 				if (data.command)
 					body += `<a href="admincommand:/@${data.command};">${data.text}</a>`;
 				else if (!data.command)
