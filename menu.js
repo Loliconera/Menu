@@ -103,7 +103,7 @@ module.exports.categories = {
 	"Misceláneas": [
 		{ command: "m drop", name: "Salir del grupo", color: c.y },
 		{ command: "m reset", name: "Reiniciar", color: c.g },
-		{ command: "m lobby", name: "Selección de personajes", color: c.p },
+		{ command: "m lobby", name: "Selección de PJ", color: c.p },
 		{ command: "m exit", name: "Salida Rápida", color: c.r },
 		{},		
 		{ command: "m et 98311 9069", name: "Highwatch", color: c.o,},	
@@ -123,11 +123,15 @@ module.exports.categories = {
 	],	
 	"Guía (Tera-Guía)": [
 		{ command: "guia", name: "on/off", color: c.o },
-		{ command: "guia ui", name: "GUI", ifcmd: "guia" },
-		{ command: "guia voice", name: "Texto a Voz", color: c.y, ifcmd: "guia" },
+		{ command: "guia ui", name: "Gui", ifcmd: "guia" },
+		{ command: "guia voice", name: "Texto a Voz (TTS)", color: c.y, ifcmd: "guia" },
 		{ command: "guia spawnObject", name: "Objetos", color: c.y, ifcmd: "guia" },
 		{ command: "guia stream", name: "Stream", color: c.lb, ifcmd: "guia" },
-		{ command: "guia debug ui", name: "Debug", color: c.b, ifcmd: "guia" },
+		{},
+		{ command: "m $Lang", name: "Idioma", color: c.g, ifcmd: "guia" },
+		{ command: "m $Gender", name: "Género", color: c.p, ifcmd: "guia" },
+		{ command: "guia help", name: "Ayuda", color: c.y, ifcmd: "guia" },
+		{ command: "guia debug ui", name: "Debug", color: c.r, ifcmd: "guia" },		
 	],
 };
 module.exports.pages = {
@@ -141,11 +145,27 @@ module.exports.pages = {
 		{},
 		{ command: "m et 2149 9716", name: "Sky Cruiser", color: c.r },
 		{},
+		{ command: "m et 98356 2050", name: "Commander Residence", color: c.y },
+		{},
 		{ command: "m et 2171 3027", name: "Forbidden Arena", color: c.v },
+		{},
+		{ command: "m et 2173 3102", name: "Draakon Arena", color: c.v },
 		{},
 		{ command: "m et 2181 9757", name: "Akeron's Inferno", color: c.lv },	
 		{},
+		{ command: "m et 2168 3023", name: "Akalath Quarantine", color: c.o },
+		{},		
 		{ command: "m et 2167 3201", name: "Gossamer Vault", color: c.lg },
+		{},
+		{ command: "m et 2129 9070", name: "Manglemire", color: c.lg },
+		{},
+		{ command: "m et 2142 9781", name: "Velik's Sanctuary", color: c.lg },
+		{},
+		{ command: "m et 2140 9780", name: "Velik's Hold", color: c.lg },
+		{},
+		{ command: "m et 2122 9811", name: "Abscess", color: c.o },
+		{},
+		{ command: "m et 2175 9053", name: "Kezzel Gorge", color: c.lb },		
 		{},
 		{ command: "m et 2103 9754", name: "Bathysmal Rise", color: c.lb },
 		{},
@@ -162,12 +182,33 @@ module.exports.pages = {
 		{ command: "m et 2154 9739", name: "Red Refuge", color: c.o },
 		{},
 		{ command: "m et 2152 9735", name: "RK-9 Kennel", color: c.g },
+		{},
+		{ command: "m et 2328 13", name: "Bam", color: c.o },
+		{},
+		{ command: "m et 7001 230", name: "Sun Feslival", color: c.o },
+		{},
+		{ command: "m et 7003 210", name: "Beach Party", color: c.o },
+		{},
+		{ command: "m et 800002 9088", name: "Sinestral Manor", color: c.lb },
+		{},
+		{ command: "m et 800003 9979", name: "Saravash's Ascent", color: c.lb },
+		{},
+		{ command: "m et 800004 9089", name: "Cultists' Refuge", color: c.lb },
+		{},
+		{ command: "m et 800005 9071", name: "Necromancer Tomb", color: c.lb },
+		{},
+		{ command: "m et 800006 9072", name: "Golden Labyrinth", color: c.lb },
+		{},
+		{ command: "m et 800009 9076", name: "Labyrinth of Terror", color: c.lb },
+		{},
+		{ command: "m et 800010 9073", name: "Ebon Tower", color: c.lb },
+		{},
 	]
 },
  "Merchant": {
-	"": [
+	"Mstyery-Merchant": [
 		{ command: "m et 98311 9069", name: "Highwatch", color: c.o,},
-		{ command: "mm", name: "Mystery-Merchant", color: c.y, ifcmd: "bh" },
+		{ command: "mm", name: "Mstyery-Merchant", color: c.y, ifcmd: "bh" },
 		{ command: "mm scan", name: "Búsqueda", color: c.g, ifcmd: "bh" },
 		{ command: "mm stop", name: "Detener", color: c.r, ifcmd: "bh" },
 		{ command: "mm loc", name: "Ubicaciónes", color: c.b, ifcmd: "bh" },
@@ -312,6 +353,20 @@ module.exports.pages = {
 		{ command: "rs reload", name: "Recarga de reemplazo", color: c.r, ifcmd: "rs" },
 		{},		
 		{ command: "npcsummoner", name: "Depuración_NPC", color: c.y, ifcmd: "npcsummoner" },
-	 ]
-}
+	]
+ },
+    "Lang": {		
+		"Cambiar el idioma": [
+		{ command: "guia en", name: "Ingles", color: c.b, ifcmd: "guia" },
+		{},
+		{ command: "guia es", name: "Español", color: c.g, ifcmd: "guia" },
+	]
+ },
+ 	"Gender": {		
+		"Cambiar Género de voz": [
+		{ command: "guia male", name: "Masculino", color: c.g, ifcmd: "guia" },
+		{},
+		{ command: "guia female", name: "Femenino", color: c.p, ifcmd: "guia" },
+	]
+ }
 };
