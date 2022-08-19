@@ -131,13 +131,13 @@ module.exports.categories = {
 		{ command: "m $Gender", name: "Género", color: c.p, ifcmd: "guia" },
 		{ command: "guia help", name: "Ayuda", color: c.y, ifcmd: "guia" },
 		{ command: "guia debug ui", name: "Debug", color: c.r, ifcmd: "guia" },
-	],	
+	],
 	"Debug": [
 		{ command: "npcsummoner", name: "Debug_NPC", color: c.y, ifcmd: "npcsummoner" },
 	],
 };
 module.exports.pages = {
-    "Dung": {		
+    "Dung": {
 		"Teletransportarse a las dungeons": [
 		{ command: "m et 1106 9027", name: "Manaya's Core", color: c.r },
 		{},
@@ -335,7 +335,7 @@ module.exports.pages = {
 		{ command: "locarnum2", name: "Locarnum (Гранаркус)", color: c.o },
 	]
 },
- "Lang": {		
+ "Lang": {
 	"Cambiar el idioma": [
 		{ command: "guia auto", name: "Auto", color: c.w, ifcmd: "guia" },
 		{},
@@ -344,7 +344,7 @@ module.exports.pages = {
 		{ command: "guia es", name: "Español", color: c.g, ifcmd: "guia" },
 	]
 },
- "Gender": {		
+ "Gender": {
 	"Cambiar Género de voz": [
 		{ command: "guia male", name: "Masculino", color: c.g, ifcmd: "guia" },
 		{},
