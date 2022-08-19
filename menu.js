@@ -7,7 +7,7 @@ const c = {
 	"br": "#bc8f8f", // Marrón
 	"o": "#ffc6d00", // Naranja
 	"p": "#ed5d92", // Rosado
-	"lp": "#ffb7c5", // Rosa claro
+	"lp": "#ffb7c5", // Rosado claro
 	"r": "#ff0606", // Rojo
 	"g": "#f04ff1c", // Verde
 	"lg": "#f4ee35d", // Verde claro
@@ -19,7 +19,7 @@ const c = {
 	"y": "#fdff00", // Amarillo
 };
 
-// Teclas de escritura disponibles:
+// Registros de claves disponibles:
 //   name    -- Nombre del elemento del menú
 //   color   -- Color del elemento del menú
 //   keybind -- Configuración de teclas de acceso rápido
