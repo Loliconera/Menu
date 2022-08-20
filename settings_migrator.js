@@ -2,7 +2,7 @@
 "use strict";
 
 const DefaultSettings = {
-
+	"premiumSlotEnabled": false,
 	"hotkey": "Ctrl+Shift+M",
 	"npc": {
 		// Para banco NPC.

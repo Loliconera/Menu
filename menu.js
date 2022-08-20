@@ -35,9 +35,10 @@ const c = {
 
 // Configuración de tragamonedas premium
 module.exports.premium = [
-	// { command: "bank", id: 60264 },
-	// { command: "broker", id: 60265 },
-	// { command: "store", id: 60262 },
+	 { command: "bank", id: 60264 },
+	 { command: "broker", id: 60265 },
+	 { command: "store", id: 60262 },
+	 { command: "m", id: 219251 },
 ];
 
 // Configuración del menú
@@ -71,54 +72,47 @@ module.exports.categories = {
 		{ command: "muhrak", name: "Muhrak", color: c.r },		
 	],
 		"Principal": [
-		{ command: "tp zone", name: "Teleport", color: c.b, ifcmd: "tp" },
-		{ command: "tp to", name: "Zona", color: c.r, ifcmd: "tp" },
 		{ command: "m $Dung", name: "Dungeons", color: c.y, ifnocmd: "dg" },
 		{ command: "dg", name: "Dungeons", color: c.y, ifcmd: "dg" },
 		{ command: "box", name: "OpenBox", color: c.v, ifcmd: "box" },
-		{ ifcmd: "tp"},
 		{ command: "translate send", name: "Autotraducir", color: c.lb, ifcmd: "translate" },
 		{ command: "food", name: "AutoFood", color: c.p, ifcmd: "food" },
 		{ command: "loot auto", name: "AutoLoot", color: c.lp, ifcmd: "loot" },
-		{ ifcmd: "bh"},
+		{ command: "ess", name: "Essentials", color: c.y },
+	],
+	"Mystery-Merchant": [
 		{ command: "mm", name: "Mystery-Merchant", color: c.y, ifcmd: "bh" },
 		{ command: "mm scan", name: "Búsqueda", color: c.o, ifcmd: "bh" },
 		{ command: "mm stop", name: "Detener", color: c.r, ifcmd: "bh" },
 		{ command: "mm loc", name: "Ubicaciones", color: c.b, ifcmd: "bh" },
-		{ command: "bh move", name: "Teleport al npc", color: c.lg, ifcmd: "tr" },
 	    { ifcmd: "bh"},
 		{ command: "wb", name: "World-Boss", color: c.lb, ifcmd: "bh" },
 		{ command: "wb scan", name: "Búsqueda", color: c.o, ifcmd: "bh" },
 		{ command: "wb stop", name: "Detener", color: c.r, ifcmd: "bh" },
 		{ command: "wb loc", name: "Ubicaciones", color: c.b, ifcmd: "bh" },
-		],
+	],
 	"Módulos": [
 		{ command: "pot", name: "AutoPot", color: c.lb, ifcmd: "pot" },
 		{ command: "camera", name: "CameraControl", color: c.g, ifcmd: "camera" },
 		{ command: "u ui", name: "Unicast", color: c.p, ifcmd: "u" },
 		{ command: "ngsp ui", name: "NGSP", color: c.r, ifcmd: "ngsp" },
 		{ command: "fps", name: "FPS Menú", color: c.y, ifcmd: "fps" },
+		{ command: "invg", name: "Auto Guild", color: c.lg, ifcmd: "invg" },
+		{ command: "lfg", name: "Auto LFG", color: c.lg, ifcmd: "lfg" },
+		{ifcmd: "cc", ifcmd: "ar"},
+		{ command: "cc", name: "AntiCC", color: c.lp, ifcmd: "cc" },
+		{ command: "ar", name: "AutoRetaliate", color: c.lp, ifcmd: "ar" },	
+		{ command: "drk", name: "Alas de Darkan", color: c.p, ifcmd: "drk" },
 	],
 	"Misceláneas": [
 		{ command: "m drop", name: "Salir del grupo", color: c.y },
 		{ command: "m reset", name: "Reiniciar", color: c.g },
 		{ command: "m lobby", name: "Selección de PJ", color: c.p },
 		{ command: "m exit", name: "Salida Rápida", color: c.r },
-		{},		
-		{ command: "m et 98311 9069", name: "Highwatch", color: c.o,},	
-		{ command: "invg", name: "Auto Guild", color: c.lg, ifcmd: "invg" },
-		{ command: "lfg", name: "Auto LFG", color: c.lg, ifcmd: "lfg" },
-		{ifcmd: "cc", ifcmd: "ar"},
-		{ command: "cc", name: "AntiCC", color: c.lp, ifcmd: "cc" },
-		{ command: "ar", name: "AutoRetaliate", color: c.lp, ifcmd: "ar" },
-		{ ifcmd: "drk"},		
-		{ command: "drk", name: "Alas de Darkan", color: c.p, ifcmd: "drk" },
-		{ ifcmd: "tp"},		
-	//	{ command: "tp back", name: "Cancelar tp", color: c.o, ifcmd: "tp" },
-		{ command: "tp blink 100", name: "TP Adelante", ifcmd: "tp" },
-		{ command: "tp up 500", name: "TP Arriba", ifcmd: "tp" },
-		{ command: "tp down 250", name: "TP Abajo", ifcmd: "tp" },
-		{ command: "tp drop -1", name: "Suicidarte", color: c.r, ifcmd: "tp" },
+		{},
+		{ command: "m et 98311 9069", name: "Highwatch", color: c.o,},
+		{ command: "m et 98359 2000", name: "Exodor 1", color: c.o }, //pesca 98359 2000, lbn 2189 3105
+		{ command: "m et 92189 3105", name: "Exodor 2", color: c.o },
 	],	
 	"Guía (Tera-Guía)": [
 		{ command: "guia", name: "On/off", color: c.o },
@@ -132,13 +126,21 @@ module.exports.categories = {
 		{ command: "guia help", name: "Ayuda", color: c.y, ifcmd: "guia" },
 		{ command: "guia debug ui", name: "Debug", color: c.r, ifcmd: "guia" },
 	],
+	"Teleport": [
+		{ command: "tp to", name: "Teleport", color: c.r, ifcmd: "tp" },
+		{ command: "tp blink 100", name: "TP Adelante", ifcmd: "tp" },
+		{ command: "tp up 500", name: "TP Arriba", ifcmd: "tp" },
+		{ command: "tp down 250", name: "TP Abajo", ifcmd: "tp" },
+		{},
+		{ command: "tp drop -1", name: "Suicidarte", color: c.r, ifcmd: "tp" },
+	],
 	"Debug": [
 		{ command: "npcsummoner", name: "Debug_NPC", color: c.y, ifcmd: "npcsummoner" },
 	],
 };
 module.exports.pages = {
     "Dung": {
-		"Teletransportarse a las dungeons": [
+		"Teleport a las dungeons": [
 		{ command: "m et 1106 9027", name: "Manaya's Core", color: c.r },
 		{},
 		{ command: "m et 2162 9044", name: "Bahaar's Sanctum", color: c.r },
