@@ -304,7 +304,7 @@ module.exports = function ProxyMenu(mod) {
 */
 	function show(page = null) {
 		const categories = menu.pages !== undefined && menu.pages[page] ? menu.pages[page] : menu.categories;
-		const tmpData = []; 
+		const tmpData = [];
 		if (page !== null) {
 			tmpData.push(
 				{ "text": "<font color=\"#9966cc\" size=\"+20\">[Atrás]</font>", "command": COMMAND },
