@@ -121,7 +121,7 @@ module.exports = function ProxyMenu(mod) {
 	});
 
 	mod.hook("S_PREMIUM_SLOT_DATALIST", 2, { "order": Infinity, "filter": { "fake": null } }, event => {
-		if (!mod.settings.premiumSlotEnabled || menu.premium.length === 0) return;
+		if (!mod.settings.premiumSlotEnabled || menu.premium.length === 0 || event.sets.length === 0) return;
 		premiumAvailable = true;
 		menu.premium.forEach(slot => {
 			if (slot.class) {
@@ -304,7 +304,7 @@ module.exports = function ProxyMenu(mod) {
 */
 	function show(page = null) {
 		const categories = menu.pages !== undefined && menu.pages[page] ? menu.pages[page] : menu.categories;
-		const tmpData = [];
+		const tmpData = []; 
 		if (page !== null) {
 			tmpData.push(
 				{ "text": "<font color=\"#9966cc\" size=\"+20\">[Atrás]</font>", "command": COMMAND },
@@ -427,8 +427,15 @@ module.exports = function ProxyMenu(mod) {
 		mod.send("S_ANNOUNCE_UPDATE_NOTIFICATION", 1, { "id": 0, title, body });
 	}
 
-	this.saveState = () => ({ player });
-	this.loadState = state => player = state.player;
+	this.saveState = () => ({
+		player,
+		premiumAvailable
+	});
+
+	this.loadState = state => {
+		player = state.player;
+		premiumAvailable = state.premiumAvailable;
+	};
 
 	this.destructor = () => {
 		keybinds.forEach(keybind => globalShortcut.unregister(keybind));
