@@ -1,12 +1,10 @@
-**El número de elementos del menú depende de los módulos instalados | El número de elementos del menú depende de los módulos instalados**
+# Menu
+
+**El número de elementos del menú depende de los módulos instalados**
 
 (Si los comerciantes en el menú no funcionan, aparentemente había un reinicio del servidor, debe visitarlos en la ciudad
 Cerca de la vanguardia y la fragua y la gran plaza de la libertad, así como el balderón)
 Solo esté cerca del NPC y el Will Funcione.
-
-(Si los comerciantes en el menú no funcionan, aparentemente había un reinicio del servidor, debe visitarlos en el reloj
-Cerca de la vanguardia y la fragua de la Patrulla y la Gran Plaza de la Libertad, así como Balderon)
-Justo al lado del NPC para ser y ganarán.
 
 ## Comandos
 
