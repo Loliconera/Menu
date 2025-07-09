@@ -1,6 +1,2 @@
 manifest-generator.bat
 manifest-generator.js
-.eslintrc.json
-package.json
-config.json
-module.config.json

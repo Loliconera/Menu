@@ -1,356 +1,316 @@
-/* eslint-disable quote-props,  comma-dangle */
+/* eslint-disable no-dupe-keys */
 "use strict";
-
-// Colores
+// Colors
 const c = {
-	"w": "#ffffff", // Blanco
-	"br": "#bc8f8f", // Marrón
-	"o": "#ffc6d00", // Naranja
-	"p": "#ed5d92", // Rosado
-	"lp": "#ffb7c5", // Rosado claro
-	"r": "#ff0606", // Rojo
-	"g": "#f04ff1c", // Verde
-	"lg": "#f4ee35d", // Verde claro
-	"v": "#f8f127e", // Violeta
-	"lv": "#f9f00d4", // Violeta claro
-	"b": "#f004eff", // Azul
-	"lb": "#08b3e5", // Azul claro
-	"gr": "#778899", // Gris
-	"y": "#fdff00", // Amarillo
+	w: "#ffffff", // white
+	br: "#bc8f8f", // brown
+	o: "#ffc6d00", // orange
+	p: "#FF1493", // pink
+	lp: "#FF69B4", // light pink
+	r: "#FF0000", // red
+	lr: "#FA8072", // light red
+	g: "#f04ff1c", // green
+	lg: "#f4ee35d", // light green
+	v: "#f9f00d4", // violet
+	lv: "#BA55D3", // light violet
+	b: "#f004eff", // blue
+	lb: "#08b3e5", // light blue
+	gr: "#778899", // gray
+	y: "#fdff00", // yellow
+	ly: "#FFFDFF20" // light yellow
 };
 
-// Registros de claves disponibles:
-//   name    -- Nombre del elemento del menú
-//   color   -- Color del elemento del menú
-//   keybind -- Configuración de teclas de acceso rápido
-//   ifcmd   -- Filtrar (mostrar) un elemento de menú si se encuentra el comando especificado
-//   ifnocmd -- Filtrar (mostrar) un elemento del menú si no se encuentra el comando especificado
-//   class   -- Filtrar (mostrar) elemento de menú por clase de juego:
+// Available record keys:
+//   name    -- Menu item name
+//   color   -- Menu item color
+//   keybind -- Hotkey assignment
+//   ifcmd   -- Filter (display) menu item if the specified command is found
+//   ifnocmd -- Filter (display) menu item if the specified command is not found
+//   class   -- Filter (display) menu item by character class:
 //                  warrior, lancer, slayer, berserker, sorcerer, archer, priest,
 //                  elementalist, soulless, engineer, fighter, assassin, glaiver
 //
-// Comandos incorporados:
-//   mm et  [quest] [instance] -- Teletransportación de vanguardia
-//   mm use [id Artículos]      -- Usar artículo del inventario
+// Built-in commands:
+//   mm et  [quest] [instance] -- Teleport via Vanguard
+//   mm use [item ID]		   -- Use an item from the inventory
 
-// Configuración de tragamonedas premium
+// Premium slots configuration
 module.exports.premium = [
-	 { command: "bank", id: 60264 },
-	 { command: "broker", id: 60265 },
-	 { command: "store", id: 60262 },
-	 { command: "m", id: 219251 },
+	{ command: "m", id: 45381 },
+	{ command: "m $dang", id: 154901 }
+	// { command: "bank", id: 60264 },
+	// { command: "broker", id: 60265 },
+	// { command: "store", id: 60262 },
 ];
 
-// Configuración del menú
+// Настройка меню
 module.exports.categories = {
-	"Comerciantes": [
-		{ command: "bank", name: "Banco", color: c.lp },
-		{ command: "pbank", name: "Banco de Mascota", color: c.lp },
-		{ command: "cbank", name: "Banco de Ropas", color: c.lp },
-		{ command: "gbank", name: "Banco de Guild", color: c.lp },
-		{ command: "ab", name: "Auto Banco", color: c.p, ifcmd: "ab" },
+	Merchants: [
+		{ command: "m bank", name: "Banco", color: c.lp },
+		{ command: "m pbank", name: "Banco de Mascota", color: c.lp },
+		{ command: "m cbank", name: "Banco de Ropas", color: c.lp },
+		{ command: "m gbank", name: "Banco de Guild", color: c.lp },
+		{ command: "ab", name: "Auto Banco", color: c.p, ifcmd: "ab", ifnocmd: "Banquero" },
+		{ command: "banker", name: "Auto Banco", color: c.p, ifcmd: "banker", ifnocmd: "ab" },
 		{},
-		{ command: "broker", name: "Broker", color: c.lb },
-		{ command: "store", name: "Merchant", color: c.g },
-		{ command: "sstore", name: "Specialty", color: c.g },
-		{ command: "ssstore", name: "Magic", color: c.lg },
-		{ command: "bel", name: "Belicarium", color: c.v },
+		{ command: "m broker", name: "broker", color: c.lb },
+		{ command: "m store", name: "Comerciante", color: c.g },
+		{ command: "m sstore", name: "S.store", color: c.g },
+		{ command: "m ssstore", name: "Magic supl.", color: c.lg },
+		{ command: "m bel", name: "Bellicarium", color: c.v },
 		{},
-		{ command: "vng", name: "Vanguard", color: c.b },
-		{ command: "vgc", name: "Crystal", color: c.b },
-		{ command: "guard", name: "Master Supplies", color: c.lb },
-		{ command: "ffstore", name: "Fish", color: c.w },
-		{ command: "vstore", name: "Peddler's", color: c.lb },
+		{ command: "m vng", name: "Vanguard", color: c.b },
+		{ command: "m vgc", name: "Cristales", color: c.b },
+		{ command: "m guard", name: "Guardian", color: c.lb },
+		{ command: "m ffstore", name: "Fish", color: c.w },
+		{ command: "m fishstore", name: "F", color: c.w },
+		{ command: "m boxfstore", name: "B", color: c.w },
+		{ command: "m vstore", name: "Peddler's", color: c.lb },
 		{},
-		{ command: "acraft", name: "Alchemy", color: c.y },
-		{ command: "scraft", name: "Smelting", color: c.y },
-		{ command: "pcraft", name: "Processing", color: c.y },
-		{ command: "ecraft", name: "Etching", color: c.y },
-		{ command: "fstore", name: "Food", color: c.y },		
-		{ command: "m $Merchant", name: "Comerciante", color: c.o, ifcmd: "bh" },
-		{},
-		{ command: "muhrak", name: "Muhrak", color: c.r },		
+		{ command: "m acraft", name: "Alquimia", color: c.y },
+		{ command: "m scraft", name: "Fundición", color: c.y },
+		{ command: "m pcraft", name: "Processing", color: c.y },
+		{ command: "m ecraft", name: "Etching", color: c.y },
+		{ command: "m fstore", name: "Cocinando", color: c.y },
+		{ command: "m jcraft", name: "Sastrería", color: c.y }
 	],
-		"Principal": [
-		{ command: "m $Dung", name: "Dungeons", color: c.y, ifnocmd: "dg" },
-		{ command: "dg", name: "Dungeons", color: c.y, ifcmd: "dg" },
-		{ command: "box", name: "OpenBox", color: c.v, ifcmd: "box" },
-		{ command: "translate send", name: "Autotraducir", color: c.lb, ifcmd: "translate" },
-		{ command: "food", name: "AutoFood", color: c.p, ifcmd: "food" },
-		{ command: "loot auto", name: "AutoLoot", color: c.lp, ifcmd: "loot" },
-		{ command: "ess", name: "Essentials", color: c.y },
-	],
-	"Mystery-Merchant": [
-		{ command: "mm", name: "Mystery-Merchant", color: c.y, ifcmd: "bh" },
-		{ command: "mm scan", name: "Búsqueda", color: c.o, ifcmd: "bh" },
-		{ command: "mm stop", name: "Detener", color: c.r, ifcmd: "bh" },
-		{ command: "mm loc", name: "Ubicaciones", color: c.b, ifcmd: "bh" },
-	    { ifcmd: "bh"},
-		{ command: "wb", name: "World-Boss", color: c.lb, ifcmd: "bh" },
-		{ command: "wb scan", name: "Búsqueda", color: c.o, ifcmd: "bh" },
-		{ command: "wb stop", name: "Detener", color: c.r, ifcmd: "bh" },
-		{ command: "wb loc", name: "Ubicaciones", color: c.b, ifcmd: "bh" },
-	],
-	"Módulos": [
-		{ command: "pot", name: "AutoPot", color: c.lb, ifcmd: "pot" },
-		{ command: "camera", name: "CameraControl", color: c.g, ifcmd: "camera" },
+	Main: [
+		{ command: "tp zone", name: "Teleport", color: c.b, ifcmd: "tp" },
+		{ command: "tp to", name: "Zona", color: c.r, ifcmd: "tp" },
+		{ command: "tp party", name: "Party", color: c.lg, ifcmd: "tp" },
+		{ command: "m tohw", name: "Ciudad (tienda Vanguard)", color: c.o },
+		{ command: "m $dang", name: "Dungeon's (Ctrl+Alt+H)", color: c.y, keybind: "ctrl+alt+h" },
+		{ ifcmd: "tp" },
+		{ command: "clear", name: "Limpiar chat", color: c.w },
+		{ command: "m $Loger", name: "$$$$$$$$", color: c.r, ifcmd: "logc", keybind: "ctrl+shift+n" },
+		{ command: "fish", name: "Pesca", color: c.w, ifcmd: "fish" },
+		{ command: "fish ui", name: "Pesca menu", color: c.w, ifcmd: "fish" },
+		{},
+		{ command: "seller", name: "Vendedor Auto", color: c.o, ifcmd: "seller" },
+		{ command: "seller open", name: "Abierto", color: c.g, ifcmd: "seller" },
+		{ command: "seller sell", name: "Vender", color: c.p, ifcmd: "seller" },
+		{ command: "seller del", name: "Eliminar basura", color: c.lr, ifcmd: "seller" },
+		{ ifcmd: "seller" },
+		{ command: "seller show", name: "Síntesis (Ctrl+Shift+S)", color: c.y, ifcmd: "seller" },
+		{ ifcmd: "seller" },
+		{ command: "mb ui", name: "Mystic bot", color: c.lp, ifcmd: "mb", class: "elementalist" },
+		{ command: "pb ui", name: "Priest bot", color: c.lp, ifcmd: "pb", class: "priest" },
+		{ command: "bers ui", name: "Auto Zerk", color: c.lv, ifcmd: "bers", class: "berserker" },
+		{ command: "sorc ui", name: "Auto Sorc", color: c.lv, ifcmd: "sorc", class: "sorcerer" },
+		{ command: "ninj ui", name: "Auto Ninja", color: c.lv, ifcmd: "ninj", class: "assassin" },
+		{ command: "braw ui", name: "Auto Brawler", color: c.lv, ifcmd: "braw", class: "fighter" },
+		{ command: "valk ui", name: "Auto Valk", color: c.lv, ifcmd: "valk", class: "glaiver" },
+		{ command: "warr ui", name: "Auto Warrior", color: c.lv, ifcmd: "warr", class: "warrior" },
+		{ command: "reap ui", name: "Auto Reaper", color: c.lv, ifcmd: "reap", class: "reaper" },
+		{ command: "slay ui", name: "Auto Slayer", color: c.lv, ifcmd: "slay", class: "slayer" },
+		{ command: "arch ui", name: "Auto Archer", color: c.lv, ifcmd: "arch", class: "archer" },
+		{ command: "lanc ui", name: "Auto Lancer", color: c.lv, ifcmd: "lanc", class: "lancer" },
+		{ command: "gunn ui", name: "Auto Gunner", color: c.lv, ifcmd: "gunn", class: "engineer" },
+		{ ifcmd: "fast" },
+		{ command: "fast", name: "Rápido On/off", color: c.v, ifcmd: "fast" },
+		{ command: "fast ui", name: "Menú rápido", color: c.lv, ifcmd: "fast" },
+		{ command: "fast reload", name: "Recarga rápida", color: c.r, ifcmd: "fast" },
+		{ command: "back ui", name: "Backstab menu", color: c.lv, ifcmd: "back" },
+		{ ifcmd: "macro" },
+		{ command: "macro", name: "macro on/off", color: c.y, ifcmd: "macro" },
+		{ command: "proxy reload macro-maker", name: "reload macro", color: c.r, ifcmd: "macro" },
+		{},
+		{ command: "pr", name: "PR on/off", color: c.y, ifcmd: "pr" },
+		{ command: "pinger toggle", name: "pinger on/off", color: c.y, ifcmd: "pinger" },
+		{ command: "pinger color", name: "pinger color alternar", color: c.y, ifcmd: "pinger" },
+		{ ifcmd: "fps" },
 		{ command: "u ui", name: "Unicast", color: c.p, ifcmd: "u" },
-		{ command: "ngsp ui", name: "NGSP", color: c.r, ifcmd: "ngsp" },
-		{ command: "fps", name: "FPS Menú", color: c.y, ifcmd: "fps" },
-		{ command: "invg", name: "Auto Guild", color: c.lg, ifcmd: "invg" },
-		{ command: "lfg", name: "Auto LFG", color: c.lg, ifcmd: "lfg" },
-		{ifcmd: "cc", ifcmd: "ar"},
-		{ command: "cc", name: "AntiCC", color: c.lp, ifcmd: "cc" },
-		{ command: "ar", name: "AutoRetaliate", color: c.lp, ifcmd: "ar" },	
-		{ command: "drk", name: "Alas de Darkan", color: c.p, ifcmd: "drk" },
-	],
-	"Misceláneas": [
-		{ command: "m drop", name: "Salir del grupo", color: c.y },
+		{ command: "fps", name: "FPS Menu", color: c.y, ifcmd: "fps" },
+		{ command: "fps 0", name: "FPS 0", color: c.w, ifcmd: "fps" },
+		{ command: "fps 1", name: "FPS 1", color: c.w, ifcmd: "fps" },
+		{ command: "fps 2", name: "FPS 2", color: c.w, ifcmd: "fps" },
+		{ command: "fps 3", name: "FPS 3", color: c.w, ifcmd: "fps" },
+		{ ifcmd: "box", ifcmd: "Traducir" },
+		{ command: "box", name: "OpenBox", color: c.v, ifcmd: "box" },
+		{ command: "translate send", name: "Traducción automática", color: c.lb, ifcmd: "translate" },
+		{ ifcmd: "auto" },
+		{ command: "auto gq", name: "Auto Guild Quest", color: c.lv, ifcmd: "auto" },
+		{ command: "auto vg", name: "Auto Vanguard", color: c.lv, ifcmd: "auto" },
+		{ command: "auto gl", name: "Auto Guard", color: c.lv, ifcmd: "auto" },
+		{ ifcmd: "invg", ifcmd: "lfg" },
+		{ command: "invg", name: "Autoaccept guild", color: c.lb, ifcmd: "invg" },
+		{ command: "lfg", name: "Autoaccept LFG", color: c.lb, ifcmd: "lfg" },
+		{},
+		{ command: "loot auto", name: "Autoloot", color: c.p, ifcmd: "loot" },
+		{ command: "bb", name: "BodyBlock", color: c.lp, ifcmd: "bb" },
+		{ ifcmd: "drk" },
+		{ command: "drk", name: "Darkan Wings", color: c.p, ifcmd: "drk" },
+		{},
+		{ command: "m drop", name: "Dejar party", color: c.y },
+		{ command: "m disband", name: "Disolver", color: c.o },
 		{ command: "m reset", name: "Reiniciar", color: c.g },
-		{ command: "m lobby", name: "Selección de PJ", color: c.p },
-		{ command: "m exit", name: "Salida Rápida", color: c.r },
+		{ command: "m lobby", name: "Personajes", color: c.p },
 		{},
-		{ command: "m et 98311 9069", name: "Highwatch", color: c.o,},
-		{ command: "m et 98359 2000", name: "Exodor 1", color: c.o }, //pesca 98359 2000, lbn 2189 3105
-		{ command: "m et 92189 3105", name: "Exodor 2", color: c.o },
-	],	
-	"Guía (Tera-Guía)": [
-		{ command: "guia", name: "On/off", color: c.o },
-		{ command: "guia ui", name: "Ajustes", color: c.g, ifcmd: "guia" },
-		{ command: "guia voice", name: "Texto a Voz (TTS)", color: c.y, ifcmd: "guia" },
-		{ command: "guia spawnObject", name: "Objetos", color: c.y, ifcmd: "guia" },
-		{ command: "guia stream", name: "Stream", color: c.lb, ifcmd: "guia" },
+		{ command: "m exit", name: "Salir del Juego", color: c.r }
+	],
+	"Tera-Guias": [
+		{ command: "guide", name: "On/Off", color: c.o },
+		{ command: "guide ui", name: "Ajustes", ifcmd: "guide" },
+		{ command: "guide voice", name: "Voz", color: c.y, ifcmd: "guide" },
+		{ command: "guide spawnObject", name: "Objetos", color: c.y, ifcmd: "guide" },
+		{ command: "guide stream", name: "Stream", color: c.lb, ifcmd: "guide" },
+		{ command: "guide debug ui", name: "Debug", color: c.b, ifcmd: "guide" },
 		{},
-		{ command: "m $Lang", name: "Idioma", color: c.g, ifcmd: "guia" },
-		{ command: "m $Gender", name: "Género", color: c.p, ifcmd: "guia" },
-		{ command: "guia help", name: "Ayuda", color: c.y, ifcmd: "guia" },
-		{ command: "guia debug ui", name: "Debug", color: c.r, ifcmd: "guia" },
-	],
-	"Teleport": [
-		{ command: "tp to", name: "Teleport", color: c.r, ifcmd: "tp" },
-		{ command: "tp blink 100", name: "TP Adelante", ifcmd: "tp" },
-		{ command: "tp up 500", name: "TP Arriba", ifcmd: "tp" },
-		{ command: "tp down 250", name: "TP Abajo", ifcmd: "tp" },
 		{},
-		{ command: "tp drop -1", name: "Suicidarte", color: c.r, ifcmd: "tp" },
-	],
-	"Debug": [
-		{ command: "npcsummoner", name: "Debug_NPC", color: c.y, ifcmd: "npcsummoner" },
-	],
+		{ command: "m $setting", name: "Otros opciones del menú (Ctrl+Alt+S)", color: c.v, keybind: "ctrl+alt+s" }
+	]
 };
 module.exports.pages = {
-    "Dung": {
-		"Teleport a las dungeons": [
-		{ command: "m et 1106 9027", name: "Manaya's Core", color: c.r },
-		{},
-		{ command: "m et 2162 9044", name: "Bahaar's Sanctum", color: c.r },
-		{},
-		{ command: "m et 2169 3026", name: "Corrupted Skynest", color: c.r },
-		{},
-		{ command: "m et 2149 9716", name: "Sky Cruiser", color: c.r },
-		{},
-		{ command: "m et 98356 2050", name: "Commander Residence", color: c.y },
-		{},
-		{ command: "m et 2171 3027", name: "Forbidden Arena", color: c.v },
-		{},
-		{ command: "m et 2173 3102", name: "Draakon Arena", color: c.v },
-		{},
-		{ command: "m et 2181 9757", name: "Akeron's Inferno", color: c.lv },	
-		{},
-		{ command: "m et 2168 3023", name: "Akalath Quarantine", color: c.o },
-		{},		
-		{ command: "m et 2167 3201", name: "Gossamer Vault", color: c.lg },
-		{},
-		{ command: "m et 2129 9070", name: "Manglemire", color: c.lg },
-		{},
-		{ command: "m et 2142 9781", name: "Velik's Sanctuary", color: c.lg },
-		{},
-		{ command: "m et 2140 9780", name: "Velik's Hold", color: c.lg },
-		{},
-		{ command: "m et 2122 9811", name: "Abscess", color: c.o },
-		{},
-		{ command: "m et 2175 9053", name: "Kezzel Gorge", color: c.lb },		
-		{},
-		{ command: "m et 2103 9754", name: "Bathysmal Rise", color: c.lb },
-		{},
-		{ command: "m et 2137 9770", name: "Ruinous Manor", color: c.o },
-		{},
-		{ command: "m et 2133 9769", name: "Lilith's Keep", color: c.y },
-		{},
-		{ command: "m et 2150 9055", name: "Ravenous Gorge", color: c.y },
-		{},
-		{ command: "m et 2139 9710", name: "Broken Prison", color: c.lg },
-		{},
-		{ command: "m et 2101 9809", name: "Macellarius Catacombs", color: c.g },
-		{},
-		{ command: "m et 2154 9739", name: "Red Refuge", color: c.o },
-		{},
-		{ command: "m et 2152 9735", name: "RK-9 Kennel", color: c.g },
-		{},
-		{ command: "m et 2328 13", name: "Bam", color: c.o },
-		{},
-		{ command: "m et 7001 230", name: "Sun Feslival", color: c.o },
-		{},
-		{ command: "m et 7003 210", name: "Beach Party", color: c.o },
-		{},
-		{ command: "m et 800002 9088", name: "Sinestral Manor", color: c.lb },
-		{},
-		{ command: "m et 800003 9979", name: "Saravash's Ascent", color: c.lb },
-		{},
-		{ command: "m et 800004 9089", name: "Cultists' Refuge", color: c.lb },
-		{},
-		{ command: "m et 800005 9071", name: "Necromancer Tomb", color: c.lb },
-		{},
-		{ command: "m et 800006 9072", name: "Golden Labyrinth", color: c.lb },
-		{},
-		{ command: "m et 800009 9076", name: "Labyrinth of Terror", color: c.lb },
-		{},
-		{ command: "m et 800010 9073", name: "Ebon Tower", color: c.lb },
-		{},
-	]
-},
- "Merchant": {
-	"Mystery-Merchant": [
-		{ command: "m et 98311 9069", name: "Highwatch", color: c.o,},
-		{ command: "mm", name: "Mystery-Merchant", color: c.y, ifcmd: "bh" },
-		{ command: "mm scan", name: "Búsqueda", color: c.g, ifcmd: "bh" },
-		{ command: "mm stop", name: "Detener", color: c.r, ifcmd: "bh" },
-		{ command: "mm loc", name: "Ubicaciónes", color: c.b, ifcmd: "bh" },
-	],
-	"Neighborhood": [
-		{ command: "veracun", name: "Veracun (Velika)", color: c.y },
-		{},
-		{ command: "alluman", name: "Alluman (Allemantheia)", color: c.y },
-		{},
-		{ command: "kaidera", name: "Kaidera (Kaiator)", color: c.y },
-		{},
-		{ command: "vardung", name: "Vardung (Island of Dawn)", color: c.lp },
-	],	
-	"Val-Oriyn": [		
-		{ command: "varrek1", name: "Varrek (Savage Reach)", color: c.lb },
-		{},
-		{ command: "varrek2", name: "Varrek (Ex-Prima)", color: c.lb },
-		{},
-		{ command: "varrek3", name: "Varrek (Spring Valley)", color: c.lb },
-		{},
-		{ command: "varrek4", name: "Varrek (Highwatch)", color: c.lb },
-		{},
-		{ command: "varrek5", name: "Varrek (Arx-Umbra)", color: c.lb },
-	],	
-	"Arcadia": [
-		{ command: "arcun1", name: "Arcun (Forest / Lumbertown)", color: c.y },
-		{},
-		{ command: "arcun2", name: "Arcun (Oblivion Woods / Кресцентия)", color: c.y },
-		{},
-		{ command: "arcun3", name: "Arcun (Tuwangi)", color: c.y },
-		{},
-		{ command: "arcun4", name: "Arcun (Valley of the Titans)", color: c.y },
-		{},
-		{ command: "arcun5", name: "Arcun (Silent Hills)", color: c.y },
-	],	
-	"Val-Aureum": [
-		{ command: "viady1", name: "Viadu (Исполинские развалины)", color: c.lg },
-		{},
-		{ command: "viady2", name: "Viadu (Вольноземье)", color: c.lg },
-		{},
-		{ command: "viady3", name: "Viadu (Утес Василисков / Чебика)", color: c.lg },
-		{},
-		{ command: "viady4", name: "Viadu (Аурумская дорога / Тулуфан)", color: c.lg },
-	],	
-	"Ostgarath": [		
-		{ command: "eteral1", name: "Eteral (Фирмаунт)", color: c.o },
-		{},		
-		{ command: "eteral2", name: "Eteral (Долина Вознесения / Кастаника)", color: c.o },
-		{},		
-		{ command: "eteral3", name: "Eteral (Остров Серпентис)", color: c.o },
-		{},		
-		{ command: "eteral4", name: "Eteral (Изрезанный берег / Гавань Головорезов)", color: c.o },
-		{},		
-		{ command: "eteral5", name: "Eteral (Остров Мистмур)", color: c.o },
-	],	
-	"Poporia": [		
-		{ command: "foretta1", name: "Foretta (Утесы Безумия)", color: c.p },
-		{},
-		{ command: "foretta2", name: "Foretta (Долина Клыка)", color: c.p },
-		{},
-		{ command: "foretta3", name: "Foretta (Ущелье Параанон / Пополион)", color: c.p },
-		{},
-		{ command: "foretta4", name: "Foretta (Озеро слез / Пора-Элину)", color: c.p },
-	],
-	"Essenia": [		
-		{ command: "ezart1", name: "Ezart (Блаженное озеро / Тралион)", color: c.r },
-		{},		
-		{ command: "ezart2", name: "Ezart (Эссенийский хребет)", color: c.r },
-		{},		
-		{ command: "ezart3", name: "Ezart (Гибельный лес)", color: c.r },
-		{},		
-		{ command: "ezart4", name: "Ezart (Извечный лес)", color: c.r },
-		{},		
-		{ command: "ezart5", name: "Ezart (Извечный лес 2)", color: c.r },
-	],
-	"Westonia": [		
-		{ command: "storan1", name: "Storan (Предел Бурь)", color: c.g },
-		{},
-		{ command: "storan2", name: "Storan (Гора Тираннас / Akarum)", color: c.g },
-		{},
-		{ command: "storan3", name: "Storan (Морозный предел / Блеклый камень)", color: c.g },
-	],
-	"Veritas District": [		
-		{ command: "versa1", name: "Versa (Убежище Балдера / Бастион)", color: c.o },
-	],
-	"Val-Elenium": [		
-		{ command: "viace1", name: "Viace (Вирмовое ущелье / Эления)", color: c.lp },
-		{},		
-		{ command: "viace2", name: "Viace (Тор-Эксул)", color: c.lp },
-		{},		
-		{ command: "viace3", name: "Viace (Каньон Сиенна)", color: c.lp },
-	],
-	"Val-Palrada": [		
-		{ command: "vaneva1", name: "Vaneva (Зона карантина / Фронтера)", color: c.lg },
-		{},
-		{ command: "vaneva2", name: "Vaneva (Свирепая долина)", color: c.lg },
-	],
-	"Silvanot/Loakun": [
-		{ command: "loacun1", name: "Loahcun (Долина пиков)", color: c.lv },
-		{},
-		{ command: "loacun2", name: "Loahcun (Долина Проклятых / Хабере)", color: c.lv },	
-		{},	
-		{ command: "silvette1", name: "Silvette (Силивуд / Скитера-Фэй)", color: c.lv },
-		{},
-		{ command: "silvette2", name: "Silvette (Дрожащий лес / Дрэгонфолл)", color: c.lv },
-		{},
-		{ command: "silvette3", name: "Silvette (Шепчущие леса)", color: c.lv },
-		{},
-		{ command: "silvette4", name: "Silvette (Амена-Кватла)", color: c.lv },
-	],
-	"Val-Tirkai": [		
-		{ command: "lotica1", name: "Lotica (Питомник аргонов / Аванпост следопытов)", color: c.br },
-		{},
-		{ command: "lotica2", name: "Lotica (Лес Тиркай)", color: c.br },
-	],
-	"РHelkan-District": [		
-		{ command: "hecurn", name: "Hecurn (Хановарские предместья / Зульфикарская крепость)", color: c.bl },
-	],
-	"Val Kaeli": [		
-		{ command: "locarnum1", name: "Locarnum (Аргония / Канстрия)", color: c.o },
-		{},
-		{ command: "locarnum2", name: "Locarnum (Гранаркус)", color: c.o },
-	]
-},
- "Lang": {
-	"Cambiar el idioma": [
-		{ command: "guia auto", name: "Auto", color: c.w, ifcmd: "guia" },
-		{},
-		{ command: "guia en", name: "Ingles", color: c.b, ifcmd: "guia" },
-		{},
-		{ command: "guia es", name: "Español", color: c.g, ifcmd: "guia" },
-	]
-},
- "Gender": {
-	"Cambiar Género de voz": [
-		{ command: "guia male", name: "Masculino", color: c.g, ifcmd: "guia" },
-		{},
-		{ command: "guia female", name: "Femenino", color: c.p, ifcmd: "guia" },
-	]
-  }
+	dang: {
+		"Teleport a los Dungeons": [
+			{ command: "m et 2190 9981", name: "Velik's Sanctuary (Hard)", color: c.p },
+			{},
+			{ command: "m et 2206 3107", name: "RK-9 Kennel (Hard)", color: c.lp },
+			{},
+			{ command: "m et 2222 9056", name: "Timescape (Hard)", color: c.y },
+			{},
+			{ command: "m et 2200 3204", name: "Lumikan’s Dream (Hard)", color: c.r },
+			{},
+			{ command: "m et 2184 9070", name: "Manglemire", color: c.bl },
+			{},
+			{ command: "m et 2161 9982", name: "Grotto of Lost Souls (Hard)", color: c.r },
+			{},
+			{ command: "m et 2157 9920", name: "Antaroth's Abyss (Hard)", color: c.lr },
+			{},
+			{ command: "m et 2199 3104", name: "Lumikan’s Dream", color: c.v },
+			{},
+			{ command: "m et 2192 9720", name: "Antaroth's Abyss", color: c.g },
+			{},
+			{ command: "m et 2160 9782", name: "Grotto of Lost Souls", color: c.lg },
+			{},
+			{ command: "m et 2220 9059", name: "Forsaken Island", color: c.y },
+			{},
+			{ command: "m et 2172 9756", name: "Timescape", color: c.ly },
+			{},
+			{ command: "m et 2193 9739", name: "Red Refuge", color: c.o },
+			{},
+			{ command: "m et 2150 9055", name: "Ravenous Gorge", color: c.y }
+		],
+		"Bajo lvl": [
+			{ command: "m tohw", name: "City (Vanguard store)", color: c.o },
+			{ command: "m et 98311 9069", name: "Training ground(Balderon)", color: c.y },
+			{},
+			{ command: "m et 2101 9809", name: "Macellarius Catacombs", color: c.g },
+			{},
+			{ command: "m et 800010 9073", name: "Ebon Tower", color: c.lb },
+			{},
+			{ command: "m et 800009 9076", name: "Labyrinth of Terror", color: c.lb },
+			{},
+			{ command: "m et 800006 9072", name: "Golden Labyrinth", color: c.lb },
+			{},
+			{ command: "m et 800005 9071", name: "Necromancer Tomb", color: c.lb },
+			{},
+			{ command: "m et 800004 9089", name: "Cultists' Refuge", color: c.lb },
+			{},
+			{ command: "m et 800003 9979", name: "Saravash's Ascent", color: c.lb },
+			{},
+			{ command: "m et 800002 9088", name: "Sinestral Manor", color: c.lb }
+		],
+		Events: [
+			{ command: "m et 7001 230", name: "Sun Feslival", color: c.o },
+			{},
+			{ command: "m et 7003 210", name: "Beach Party", color: c.o }
+		]
+	},
+	Loger: {
+		Mods: [
+			{ command: "proxy reload packetslogger", name: "Recarga del registrador", color: c.p, ifcmd: "logs" },
+			{ ifcmd: "logs" },
+			{ command: "logc", name: "LOG C", color: c.bl, ifcmd: "logc" },
+			{ command: "logs", name: "LOG S", color: c.o, ifcmd: "logs" },
+			{ ifcmd: "ten" },
+			{ command: "ten on", name: "Auto Nostrum on", color: c.g, ifcmd: "ten" },
+			{ command: "ten off", name: "Auto Nostrum off", color: c.r, ifcmd: "ten" },
+			{ command: "ten ui", name: "Auto Nostrum menu", color: c.y, ifcmd: "ten" }
+		],
+		Teleport: [
+			{ command: "tp zone", name: "Teleport", color: c.b, ifcmd: "tp" },
+			{ command: "tp to", name: "Zona", color: c.r, ifcmd: "tp" },
+			{ command: "m $GBam", name: "Guild Bam", color: c.lb, ifcmd: "tp" },
+			{ ifcmd: "tp" },
+			{ command: "just blink 100", name: "Blink forward", keybind: "ctrl+alt+w" },
+			{ command: "just up 500", name: "Blink UP" },
+			{ command: "just down 250", name: "Blink DOWN" },
+			{ ifcmd: "tp" },
+			{ command: "tp drop 1", name: "1%", color: c.r, ifcmd: "tp" },
+			{ command: "tp drop 10", name: "10%", color: c.r, ifcmd: "tp" },
+			{ command: "tp drop 20", name: "20%", color: c.o, ifcmd: "tp" },
+			{ command: "tp drop 30", name: "30%", color: c.o, ifcmd: "tp" },
+			{ command: "tp drop 40", name: "40%", color: c.y, ifcmd: "tp" },
+			{ command: "tp drop 50", name: "50%", color: c.y, ifcmd: "tp" },
+			{ command: "tp drop 60", name: "60%", color: c.lb, ifcmd: "tp" },
+			{ command: "tp drop 70", name: "70%", color: c.lb, ifcmd: "tp" },
+			{ command: "tp drop 80", name: "80%", color: c.lg, ifcmd: "tp" },
+			{ command: "tp drop 90", name: "90%", color: c.g, ifcmd: "tp" },
+			{ ifcmd: "tp" },
+			{ command: "tp drop -1", name: "Matarte", color: c.r, ifcmd: "tp" }
+		],
+		Channels: [
+			{ command: "m cha 1", name: "(_1_)", color: c.g },
+			{ command: "m cha 2", name: "(_2_)", color: c.g },
+			{ command: "m cha 3", name: "(_3_)", color: c.g },
+			{ command: "m cha 4", name: "(_4_)", color: c.g },
+			{ command: "m cha 5", name: "(_5_)", color: c.lv },
+			{ command: "m cha 6", name: "(_6_)", color: c.lv },
+			{ command: "m cha 7", name: "(_7_)", color: c.lb },
+			{ command: "m cha 8", name: "(_8_)", color: c.lb }
+		],
+		"Nexus comerciantes": [
+			{ command: "mm", name: "Resp. comerciantes de tiempo", color: c.y, ifcmd: "bh" },
+			{ command: "mm scan", name: "Escanear", color: c.g, ifcmd: "bh" },
+			{ command: "mm stop", name: "Detener", color: c.r, ifcmd: "bh" },
+			{ command: "mm loc", name: "Ubicación", color: c.b, ifcmd: "bh" },
+			{ ifcmd: "bh" },
+			{ command: "wb", name: "Resp. Jefe del Mundo del Tiempo", color: c.y, ifcmd: "bh" },
+			{ command: "wb scan", name: "Escanear", color: c.g, ifcmd: "bh" },
+			{ command: "wb stop", name: "Detener", color: c.r, ifcmd: "bh" },
+			{ command: "wb loc", name: "Ubicación", color: c.b, ifcmd: "bh" }
+		]
+	},
+	setting: {
+		Weather: [
+			{ command: "m aero normal", name: "Por defecto", color: c.g },
+			{ command: "m aero snow", name: "Nieve", color: c.lb },
+			{ command: "m aero night", name: "Noche", color: c.o },
+			{ command: "m aero dark", name: "Oscuro", color: c.v }
+		],
+		Settings: [
+			{ command: "m premium", name: "Agregar. botones VIP-panel", color: c.y },
+			{},
+			{ command: "m scene", name: "Omitir intro de video", color: c.lp },
+			{},
+			{ command: "m drunk", name: "Desactivar la pantalla borracha", color: c.lg },
+			{},
+			{ command: "m brooch", name: "Desactivar animaciones de broche", color: c.lp },
+			{},
+			{ command: "m build", name: "Ocultando árboles. Letreros. Calendario", color: c.g },
+			{},
+			{ command: "m fix", name: "JustSpam F", color: c.lv },
+			{},
+			{ command: "m autoaccept", name: "Auto Aceptar party", color: c.lg },
+			{},
+			{ command: "m autoreset", name: "Auto Aceptar (Reinicio de Dungeon / Disolver Party)", color: c.g },
+			{},
+			{ command: "m tolobby", name: "Deshabilitar el temporizador al salir para seleccionar caracteres", color: c.y },
+			{},
+			{ command: "m ggreset", name: "Restablecimiento automático de Gillieglade", color: c.lp },
+			{},
+			{ command: "m autobox", name: "Apertura automática de cuadros en un solo clic", color: c.v },
+			{},
+			{ command: "m backwalk", name: "Caminar hacia atrás (solo otros pueden ver)", color: c.y },
+			{},
+			{ command: "m circlewalk", name: "Camina mientras gira (solo visible para otros)", color: c.o },
+			{},
+			{ command: "cc", name: "Anti-CC", color: c.lp, ifcmd: "cc" },
+			{ command: "ar", name: "Auto-Retaliate", color: c.lp, ifcmd: "ar" },
+			{ command: "tp jaunt", name: "On/Off jaunt", color: c.o, ifcmd: "tp" },
+			{},
+			{ command: "m $Loger", name: "$$$$$$$$", color: c.r }
+		]
+	}
 };
