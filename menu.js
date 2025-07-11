@@ -151,16 +151,15 @@ module.exports.categories = {
 	"Guía (Tera-Guía)": [
 		{ command: "guia", name: "On/Off", color: c.o },
     { command: "guia ui", name: "Ajustes", ifcmd: "guia" },
-		{ command: "guia voice", name: "Texto a Voz (TTS)", color: c.y, ifcmd: "guia" },
+    { command: "guia voice", name: "Texto a Voz (TTS)", color: c.y, ifcmd: "guia" },
+    {},
 		{ command: "guia spawnObject", name: "Objetos", color: c.y, ifcmd: "guia" },
     { command: "guia stream", name: "Stream", color: c.lb, ifcmd: "guia" },
-    { command: "m $Lang", name: "Idioma", color: c.g, ifcmd: "guia" },
-    { command: "m $Gender", name: "Género", color: c.p, ifcmd: "guia" },
     { command: "guia help", name: "Ayuda", color: c.y, ifcmd: "guia" },
 		{ command: "guia debug ui", name: "Debug", color: c.b, ifcmd: "guia" },
 		{},
 		{},
-		{ command: "m $setting", name: "Otras opciones del menú (Ctrl+Alt+S)", color: c.v, keybind: "ctrl+alt+s" }
+		{ command: "m $setting", name: "Otras opciones (Ctrl+Alt+S)", color: c.v, keybind: "ctrl+alt+s" }
 	]
 };
 module.exports.pages = {
