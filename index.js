@@ -43,9 +43,9 @@ module.exports = function ProxyMenu(mod) {
 	const path = jsonRequire("path");
 	const fs = jsonRequire("fs");
 	const NecklaceIDs = [20715, 20716, 20717, 20752];
-	const Message2 = "You are wearing the Resource Gathering Amulet! На вас надет Амулет на сбор ресурсов!";
+	const Message2 = "¡Estás usando el amuleto de reunión de recursos! ¡Estás usando un amuleto para recopilar recursos!";
 	const WhiskerIDs = [206100, 206101, 206102, 206103, 206104, 206105, 206106, 206107, 206108, 206109];
-	const Message = "You're wearing a fisherman's moustache! На вас надеты усы рыбака!";
+	const Message = "¡Estás usando el bigote de un pescador! ¡El bigote de un pescador te está usando!";
 	const weather = {
 		normal: "acn_aeroset.AERO.SPR_Corruption_AERO",
 		snow: "BF_snowBattle_aeroset.AERO.BF_snowBattle_renew_AERO",
@@ -59,7 +59,7 @@ module.exports = function ProxyMenu(mod) {
 		parse(array, title, d = "") {
 			for (let i = 0; i < array.length; i++) {
 				if (d.length >= 20000) {
-					d += "Gui data limit exceeded, some values may be missing.";
+					d += "Límite de datos de GUI excedido, pueden faltar algunos valores.";
 					break;
 				}
 				if (array[i].command) d += `<a href="admincommand:/@${array[i].command}">${array[i].text}</a>`;
@@ -325,7 +325,7 @@ module.exports = function ProxyMenu(mod) {
 		},
 		premium: () => {
 			mod.settings.premiumSlotEnabled = !mod.settings.premiumSlotEnabled;
-			mod.command.message(`Доп. иконки меню на премиум панели: ${mod.settings.premiumSlotEnabled ? "Включено" : "Выключено"}`);
+			mod.command.message(`Complementado. Menú iconos de paneles premium: ${mod.settings.premiumSlotEnabled ? "Activado" : "Apagado"}`);
 		},
 		lobby: () => {
 			mod.send("C_RETURN_TO_LOBBY", 1);
@@ -352,43 +352,43 @@ module.exports = function ProxyMenu(mod) {
 		},
 		build: () => {
 			mod.settings.spawnBuild = !mod.settings.spawnBuild;
-			mod.command.message(`Таблички. Ёлки. Календарь: ${mod.settings.spawnBuild ? "скрыты" : "будут видны"}`);
+			mod.command.message(`Letreros. Árboles de Navidad. Calendario: ${mod.settings.spawnBuild ? "Oculto" : "Será visible"}`);
 		},
 		scene: () => {
 			mod.settings.blockscene = !mod.settings.blockscene;
-			mod.command.message(`Пропуск видеозаставок: ${mod.settings.blockscene ? "Включен" : "Выключен"}`);
+			mod.command.message(`Omitiendo intro de video: ${mod.settings.blockscene ? "Activado" : "Desactivado"}`);
 		},
 		fix: () => {
 			mod.settings.fix = !mod.settings.fix;
-			mod.command.message(`JustSpam F: ${mod.settings.fix ? "Включено" : "Выключено"}`);
+			mod.command.message(`JustSpam F: ${mod.settings.fix ? "Activado" : "Desactivado"}`);
 		},
 		tolobby: () => {
 			mod.settings.lobby = !mod.settings.lobby;
-			mod.command.message(`Быстрый релог на персонажей: ${mod.settings.lobby ? "Включено" : "Выключено"}`);
+			mod.command.message(`Religioso rápido en personajes: ${mod.settings.lobby ? "Activado" : "Desactivado"}`);
 		},
 		drunk: () => {
 			mod.settings.drunk = !mod.settings.drunk;
-			mod.command.message(`Скрытие пьяного экрана: ${mod.settings.drunk ? "Скрываю" : "Не скрываю"}`);
+			mod.command.message(`Ocultar una pantalla borracha: ${mod.settings.drunk ? "Ocultar" : "No Ocultar"}`);
 		},
 		brooch: () => {
 			mod.settings.brooch = !mod.settings.brooch;
-			mod.command.message(`Скрытие анимации брошки: ${mod.settings.brooch ? "Скрываю" : "Не скрываю"}`);
+			mod.command.message(`Ocultar animación de broches: ${mod.settings.brooch ? "Ocultar" : "No Ocultar"}`);
 		},
 		dbe: () => {
 			mod.settings.backstep = !mod.settings.backstep;
-			mod.command.message(`Автосброс эвейда (прист): ${mod.settings.backstep ? "Включено" : "Выключено"}`);
+			mod.command.message(`Autos de Eveida (Correo): ${mod.settings.backstep ? "Activado" : "Desactivado"}`);
 		},
 		ggreset: () => {
 			mod.settings.ggreset = !mod.settings.ggreset;
-			mod.command.message(`Автосброс Поляны после использования свитка телепортации: ${mod.settings.ggreset ? "Включено" : "Выключено"}`);
+			mod.command.message(`Autosics de Polyana después de usar un pergamino de teletransportación: ${mod.settings.ggreset ? "Activado" : "Desactivado"}`);
 		},
 		autoaccept: () => {
 			mod.settings.autoaccept = !mod.settings.autoaccept;
-			mod.command.message(`Авто принятие пати : ${mod.settings.autoaccept ? "Включено" : "Выключено"}`);
+			mod.command.message(`Aceptación automática de Party : ${mod.settings.autoaccept ? "Activado" : "Desactivado"}`);
 		},
 		autoreset: () => {
 			mod.settings.autoreset = !mod.settings.autoreset;
-			mod.command.message(`Авто приняти сброса / роспуска пати: ${mod.settings.autoreset ? "Включено" : "Выключено"}`);
+			mod.command.message(`Auto reiniciar / disolución de Party: ${mod.settings.autoreset ? "Activado" : "Desactivado"}`);
 		},
 		hotkey: arg => {
 			if (!arg) {
@@ -413,7 +413,7 @@ module.exports = function ProxyMenu(mod) {
 		et: (quest, instance) => eventTeleport(quest, instance),
 		debug: () => {
 			debug = !debug;
-			mod.command.message(`Debug mode ${debug ? "enabled" : "disabled"}.`);
+			mod.command.message(`Debug mode ${debug ? "Activado" : "Desactivado"}.`);
 		},
 		$default: arg => {
 			if (arg[0] === "$") {
@@ -424,7 +424,7 @@ module.exports = function ProxyMenu(mod) {
 			if (!isNaN(meow)) changeChannel(meow);
 			else if (["n"].includes(meow)) changeChannel(currentChannel.channel + 1);
 			else if (["b"].includes(meow)) changeChannel(currentChannel.channel - 1);
-			else console.log("Неверное значение");
+			else console.log("Noveven es");
 		},
 		broker: () => {
 			mod.send("S_NPC_MENU_SELECT", 1, { type: 28 });
@@ -433,33 +433,33 @@ module.exports = function ProxyMenu(mod) {
 			if (!percent || isDrop) return;
 			percent = (parseInt(curHp) * 100 / parseInt(maxHp)) - Number(percent);
 			if (percent <= 0) {
-				return mod.command.message("Мало HP");
+				return mod.command.message("Un poco de HP");
 			}
 			dropHp(percent);
 		},
 		backwalk: () => {
 			mod.settings.backwalk = !mod.settings.backwalk;
-			mod.command.message(`Ходьба спиной (видят только другие) : ${mod.settings.backwalk ? "Включено" : "Выключено"}`);
+			mod.command.message(`Caminando de espaldas (solo otros ven) : ${mod.settings.backwalk ? "Activado" : "Desactivado"}`);
 		},
 		circlewalk: () => {
 			mod.settings.circlewalk = !mod.settings.circlewalk;
-			mod.command.message(`Ходьба вращаясь (видят только другие) : ${mod.settings.circlewalk ? "Включено" : "Выключено"}`);
+			mod.command.message(`Caminando (solo otros ven) : ${mod.settings.circlewalk ? "Activado" : "Desactivado"}`);
 		},
 		circle: arg => {
 			mod.settings.circle = arg;
-			mod.command.message(`Коефициент поворота <font color="#5da8ce">${arg}</font>`);
+			mod.command.message(`Relación de rotación <font color="#5da8ce">${arg}</font>`);
 		},
 		autobox: () => {
 			mod.settings.openbox = !mod.settings.openbox;
-			mod.command.message(`Открытие коробок в один клик: ${mod.settings.openbox ? "Включено" : "Выключено"}`);
+			mod.command.message(`Apertura de cuadros de un clic: ${mod.settings.openbox ? "Activado" : "Desactivado"}`);
 		},
 		boxdelay: (arg) => {
 			if (arg === "0") {
 				mod.settings.boxdelay = 0;
-				mod.command.message("Задержка открытия коробок убрана");
+				mod.command.message("Se eliminó el retraso en la apertura de las cajas");
 			} else if (!isNaN(arg)) {
 				mod.settings.boxdelay = parseInt(arg);
-				mod.command.message(`Задержка открытия: ${ mod.settings.boxdelay / 1000 } сек`);
+				mod.command.message(`Retraso de descubrimiento: ${ mod.settings.boxdelay / 1000 } сек`);
 			}
 		},
 		aero: (arg) => {
@@ -468,22 +468,22 @@ module.exports = function ProxyMenu(mod) {
 					if (mod.settings.aero === arg) {
 						mod.settings.aeromanual = false;
 						mod.settings.aero = "normal";
-						mod.command.message("Погода отключена.");
+						mod.command.message("El clima está deshabilitado.");
 					} else {
 						mod.settings.aero = arg;
-						mod.command.message(`Погода сменилась на: ${arg}`);
+						mod.command.message(`El clima fue reemplazado por: ${arg}`);
 					}
 					meteo();
 				} else {
-					mod.command.message("Некорректная погода. Доступные варианты: normal, snow, dark, night.");
+					mod.command.message("Corrección del clima. Opciones disponibles: normal, snow, dark, night.");
 				}
 			} else if (weather[arg]) {
 				mod.settings.aeromanual = true;
 				mod.settings.aero = arg;
-				mod.command.message(`Погода включена: ${arg}`);
+				mod.command.message(`El clima está incluido: ${arg}`);
 				meteo();
 			} else {
-				mod.command.message("Некорректная погода. Доступные варианты: normal, snow, dark, night.");
+				mod.command.message("Corrección del clima. Opciones disponibles: normal, snow, dark, night.");
 			}
 		}
 	};
@@ -529,7 +529,7 @@ module.exports = function ProxyMenu(mod) {
 
 			if (name) {
 				if (!bookmarks.has(name)) {
-					return mod.command.message(`Cannot found bookmark: ${name}, zone: ${mod.game.me.zone}`);
+					return mod.command.message(`No se puede encontrar marcador: ${name}, zone: ${mod.game.me.zone}`);
 				}
 				const loc = bookmarks.get(name);
 				teleportInstant(loc.x, loc.y, loc.z, loc.w, mod.game.me.zone);
@@ -558,10 +558,10 @@ module.exports = function ProxyMenu(mod) {
 		remove: name => {
 			if (name) {
 				if (!bookmarks.has(name)) {
-					mod.command.message(`Cannot found bookmark: ${name}, zone: ${mod.game.me.zone}`);
+					mod.command.message(`No se puede encontrar marcador: ${name}, zone: ${mod.game.me.zone}`);
 				} else {
 					bookmarks.delete(name);
-					mod.command.message(`Bookmark has removed: ${name}, zone: ${mod.game.me.zone}`);
+					mod.command.message(`El marcador ha eliminado: ${name}, zone: ${mod.game.me.zone}`);
 					saveBookmarks();
 				}
 			}
@@ -569,10 +569,10 @@ module.exports = function ProxyMenu(mod) {
 		guiremove: (name, action) => {
 			if (name) {
 				if (!bookmarks.has(name)) {
-					mod.command.message(`Cannot found bookmark: ${name}, zone: ${mod.game.me.zone}`);
+					mod.command.message(`No se puede encontrar marcador: ${name}, zone: ${mod.game.me.zone}`);
 				} else if (action === "yes") {
 					bookmarks.delete(name);
-					mod.command.message(`Bookmark has removed: ${name}, zone: ${mod.game.me.zone}`);
+					mod.command.message(`El marcador ha eliminado: ${name}, zone: ${mod.game.me.zone}`);
 					saveBookmarks();
 					if (bookmarks.size !== 0) {
 						teleportList();
@@ -581,12 +581,12 @@ module.exports = function ProxyMenu(mod) {
 					teleportList();
 				} else {
 					const tmpData = [
-						{ text: `<font color="#cccccc" size="+24">Do you want to remove bookmark &quot;${name}&quot; from zone ${mod.game.me.zone}?</font><br><br>` },
+						{ text: `<font color="#cccccc" size="+24">¿Quieres eliminar el marcador? &quot;${name}&quot; desde la zona ${mod.game.me.zone}?</font><br><br>` },
 						{ text: "<font color=\"#fe6f5e\" size=\"+24\">[Yes]</font>", command: `tp guiremove '${name}' yes` },
 						{ text: "&nbsp;".repeat(4) },
 						{ text: "<font color=\"#4de19c\" size=\"+24\">[No]</font>", command: `tp guiremove '${name}' no` }
 					];
-					parseGui(tmpData, "<font color=\"#e0b0ff\">Confirm Deletion</font>");
+					parseGui(tmpData, "<font color=\"#e0b0ff\">Confirmar la eliminación</font>");
 				}
 			}
 		},
@@ -595,7 +595,7 @@ module.exports = function ProxyMenu(mod) {
 			if (lastLocation) {
 				teleportInstant(lastLocation.loc.x, lastLocation.loc.y, lastLocation.loc.z, lastLocation.w);
 			} else {
-				mod.command.message("No last point saved!");
+				mod.command.message("¡No hay último punto guardado!");
 			}
 		},
 		up: zOffset => {
@@ -815,7 +815,7 @@ module.exports = function ProxyMenu(mod) {
 					opening = true;
 					openGacha(gachaId);
 					if (mod.game.inventory.getTotalAmount(gachaId) >= 5) {
-						mod.command.message("Открываю. Для остановки кликните еще раз на предмет.");
+						mod.command.message("Lo abro. Para detenerse, haga clic nuevamente en el tema.");
 					}
 				}
 			});
@@ -823,7 +823,7 @@ module.exports = function ProxyMenu(mod) {
 			opening = false;
 			openGacha(gachaId);
 			gachaId = null;
-			mod.command.message("Остановка.");
+			mod.command.message("Detener");
 			return false;
 		}
 	});
@@ -888,14 +888,14 @@ module.exports = function ProxyMenu(mod) {
 					opening = false; gacha = false;
 					if (mod.game.inventory.getTotalAmount(id) < 1) {
 						gachaId = null;
-						mod.command.message("Закончил открытие.");
+						mod.command.message("Terminó el descubrimiento.");
 					}
 				});
 			} else {
 				opening = false;
 				if (mod.game.inventory.getTotalAmount(id) < 1) {
 					gachaId = null;
-					mod.command.message("Закончил открытие.");
+					mod.command.message("Terminó el descubrimiento.");
 				}
 			}
 		}
@@ -905,7 +905,7 @@ module.exports = function ProxyMenu(mod) {
 		if (currentChannel.channel > 20) return;
 		if (newChannel == 0) newChannel = 10;
 		if (newChannel == currentChannel.channel) {
-			console.log("You already on this channel.");
+			console.log("Ya estás en este canal.");
 			return;
 		}
 		newChannel -= 1;
@@ -966,7 +966,7 @@ module.exports = function ProxyMenu(mod) {
 		if (bookmarks.size === 0) return;
 		const tempData = [
 			{ text: "&nbsp;".repeat(180) },
-			{ text: "<font color=\"#9966cc\" size=\"+24\">[back]</font>", command: "m $Loger" },
+			{ text: "<font color=\"#9966cc\" size=\"+24\">[Atrás]</font>", command: "m $Loger" },
 			{ text: "<font size=\"+4\"><br></font>" }
 		];
 		bookmarks.forEach((bookmarkData, bookmarkName) => {
@@ -977,7 +977,7 @@ module.exports = function ProxyMenu(mod) {
 				{ text: `<font color="#4de19c" size="+38">${bookmarkName}</font><br>`, command: `just to '${bookmarkName}'` }
 			);
 		});
-		parseGui(tempData, `<font color="#e0b0ff">${"Teleport List"} [${mod.game.me.zone}]</font>`);
+		parseGui(tempData, `<font color="#e0b0ff">${"Lista de teletransportes"} [${mod.game.me.zone}]</font>`);
 	}
 
 	function parseGui(array, title) {
@@ -985,7 +985,7 @@ module.exports = function ProxyMenu(mod) {
 		try {
 			array.forEach(data => {
 				if (body.length >= 20000)
-					throw "GUI data limit exceeded, some values may be missing.";
+					throw "Límite de datos de la GUI excedido, pueden faltar algunos valores";
 				if (data.command)
 					body += `<a href="admincommand:/@${data.command};">${data.text}</a>`;
 				else if (!data.command)
@@ -1018,7 +1018,7 @@ module.exports = function ProxyMenu(mod) {
 		const tmpData = [];
 		if (page !== null) {
 			tmpData.push(
-				{ text: "<font color=\"#9966cc\" size=\"+20\">[Back]</font>", command: COMMAND },
+				{ text: "<font color=\"#9966cc\" size=\"+20\">[Atrás]</font>", command: COMMAND },
 				{ text: "<br>" }
 			);
 		}
@@ -1078,12 +1078,12 @@ module.exports = function ProxyMenu(mod) {
 		const command = page ? `${COMMAND} $${page}` : COMMAND;
 		tmpData.push(
 			{ text: "<br>" },
-			{ text: "<font color=\"#9966cc\" size=\"+15\">[Reload]</font>", command: `proxy reload proxy-menu; ${command}` },
+			{ text: "<font color=\"#9966cc\" size=\"+15\">[Recargar]</font>", command: `proxy reload proxy-menu; ${command}` },
 			{ text: "&nbsp;&nbsp;&nbsp;&nbsp;" },
 			{ text: "&nbsp;&nbsp;&nbsp;&nbsp;" },
-			{ text: `<font color="#dddddd" size="+18">${moment().tz("Europe/Berlin").format("HH:mm z")} / ${moment().tz("Europe/Kiev").format("HH:mm z")}/ ${moment().tz("Europe/Moscow").format("HH:mm z")}</font>` }
+			{ text: `<font color="#dddddd" size="+18">${moment().tz("Europe/Berlin").format("HH:mm z")} / ${moment().tz("Europe/Kiev").format("HH:mm z")}/ ${moment().tz("Europe/Moscow").format("HH:mm z")}/ ${moment().tz("Perú/Lima").format("hh:mm:ss tt")}</font>` }
 		);
-		parse(tmpData, "<font>Menu</font>");
+		parse(tmpData, "<font>Menú</font>");
 	}
 
 	function useItem(id) {
@@ -1149,7 +1149,7 @@ module.exports = function ProxyMenu(mod) {
 		try {
 			array.forEach(data => {
 				if (body.length >= 20000)
-					throw "GUI data limit exceeded, some values may be missing.";
+					throw "Límite de datos de GUI excedido, pueden faltar algunos valores.";
 				if (data.command)
 					body += `<a href="admincommand:/@${data.command};">${data.text}</a>`;
 				else if (!data.command)

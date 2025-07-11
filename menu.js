@@ -53,10 +53,10 @@ module.exports.categories = {
 		{ command: "ab", name: "Auto Banco", color: c.p, ifcmd: "ab", ifnocmd: "Banquero" },
 		{ command: "banker", name: "Auto Banco", color: c.p, ifcmd: "banker", ifnocmd: "ab" },
 		{},
-		{ command: "m broker", name: "broker", color: c.lb },
+		{ command: "m broker", name: "Trade Broker", color: c.lb },
 		{ command: "m store", name: "Comerciante", color: c.g },
-		{ command: "m sstore", name: "S.store", color: c.g },
-		{ command: "m ssstore", name: "Magic supl.", color: c.lg },
+		{ command: "m sstore", name: "Specialty", color: c.g },
+		{ command: "m ssstore", name: "Magic Supl.", color: c.lg },
 		{ command: "m bel", name: "Bellicarium", color: c.v },
 		{},
 		{ command: "m vng", name: "Vanguard", color: c.b },
@@ -125,7 +125,7 @@ module.exports.categories = {
 		{ command: "fps 1", name: "FPS 1", color: c.w, ifcmd: "fps" },
 		{ command: "fps 2", name: "FPS 2", color: c.w, ifcmd: "fps" },
 		{ command: "fps 3", name: "FPS 3", color: c.w, ifcmd: "fps" },
-		{ ifcmd: "box", ifcmd: "Traducir" },
+		{ ifcmd: "box", ifcmd: "translate" },
 		{ command: "box", name: "OpenBox", color: c.v, ifcmd: "box" },
 		{ command: "translate send", name: "Traducción automática", color: c.lb, ifcmd: "translate" },
 		{ ifcmd: "auto" },
@@ -148,21 +148,24 @@ module.exports.categories = {
 		{},
 		{ command: "m exit", name: "Salir del Juego", color: c.r }
 	],
-	"Tera-Guias": [
-		{ command: "guide", name: "On/Off", color: c.o },
-		{ command: "guide ui", name: "Ajustes", ifcmd: "guide" },
-		{ command: "guide voice", name: "Voz", color: c.y, ifcmd: "guide" },
-		{ command: "guide spawnObject", name: "Objetos", color: c.y, ifcmd: "guide" },
-		{ command: "guide stream", name: "Stream", color: c.lb, ifcmd: "guide" },
-		{ command: "guide debug ui", name: "Debug", color: c.b, ifcmd: "guide" },
+	"Guía (Tera-Guía)": [
+		{ command: "guia", name: "On/Off", color: c.o },
+    { command: "guia ui", name: "Ajustes", ifcmd: "guia" },
+		{ command: "guia voice", name: "Texto a Voz (TTS)", color: c.y, ifcmd: "guia" },
+		{ command: "guia spawnObject", name: "Objetos", color: c.y, ifcmd: "guia" },
+    { command: "guia stream", name: "Stream", color: c.lb, ifcmd: "guia" },
+    { command: "m $Lang", name: "Idioma", color: c.g, ifcmd: "guia" },
+    { command: "m $Gender", name: "Género", color: c.p, ifcmd: "guia" },
+    { command: "guia help", name: "Ayuda", color: c.y, ifcmd: "guia" },
+		{ command: "guia debug ui", name: "Debug", color: c.b, ifcmd: "guia" },
 		{},
 		{},
-		{ command: "m $setting", name: "Otros opciones del menú (Ctrl+Alt+S)", color: c.v, keybind: "ctrl+alt+s" }
+		{ command: "m $setting", name: "Otras opciones del menú (Ctrl+Alt+S)", color: c.v, keybind: "ctrl+alt+s" }
 	]
 };
 module.exports.pages = {
 	dang: {
-		"Teleport a los Dungeons": [
+		"Teleport a las Dungeons": [
 			{ command: "m et 2190 9981", name: "Velik's Sanctuary (Hard)", color: c.p },
 			{},
 			{ command: "m et 2206 3107", name: "RK-9 Kennel (Hard)", color: c.lp },
@@ -191,7 +194,7 @@ module.exports.pages = {
 			{},
 			{ command: "m et 2150 9055", name: "Ravenous Gorge", color: c.y }
 		],
-		"Bajo lvl": [
+		"Nivel Bajo": [
 			{ command: "m tohw", name: "City (Vanguard store)", color: c.o },
 			{ command: "m et 98311 9069", name: "Training ground(Balderon)", color: c.y },
 			{},
@@ -288,7 +291,7 @@ module.exports.pages = {
 			{},
 			{ command: "m brooch", name: "Desactivar animaciones de broche", color: c.lp },
 			{},
-			{ command: "m build", name: "Ocultando árboles. Letreros. Calendario", color: c.g },
+			{ command: "m build", name: "Ocultar árboles. Letreros. Calendario", color: c.g },
 			{},
 			{ command: "m fix", name: "JustSpam F", color: c.lv },
 			{},
