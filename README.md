@@ -14,8 +14,8 @@ Toolbox (/8)| Hotkey | Descripción del comando | Descripción
 **M $ Dang**| **Ctrl+Alt+H**| Vanguard TelePort, también tú Canj | Llamar a un teletransporte en la vanguardia a Danzham
 **m $ setting**| **Ctrl+Alt+S**| Otro menú de configuración | Administra agregar. Funciones y configuraciones de menú
 
-![](https://i.ibb.co/QfQMZHR/image.png)
-![](https://i.ibb.co/55Wps3V/image.png)
+<img width="411" height="452" alt="image" src="https://github.com/user-attachments/assets/4f001089-97ae-4011-8607-34b106133258" />
+<img width="411" height="452" alt="image" src="https://github.com/user-attachments/assets/97389167-399b-489c-abf5-83647bf5c150" />
 
 ## Admite mods
 

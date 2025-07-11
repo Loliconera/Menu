@@ -1081,7 +1081,7 @@ module.exports = function ProxyMenu(mod) {
 			{ text: "<font color=\"#9966cc\" size=\"+15\">[Recargar]</font>", command: `proxy reload proxy-menu; ${command}` },
 			{ text: "&nbsp;&nbsp;&nbsp;&nbsp;" },
 			{ text: "&nbsp;&nbsp;&nbsp;&nbsp;" },
-			{ text: `<font color="#dddddd" size="+18">${moment().tz("Europe/Berlin").format("HH:mm z")} / ${moment().tz("Europe/Kiev").format("HH:mm z")}/ ${moment().tz("Europe/Moscow").format("HH:mm z")}/ ${moment().tz("Perú/Lima").format("hh:mm:ss tt")}</font>` }
+			{ text: `<font color="#dddddd" size="+18">${moment().tz("Europe/Berlin").format("HH:mm z")} / ${moment().tz("Europe/Kiev").format("HH:mm z")}/ ${moment().tz("Europe/Moscow").format("HH:mm z")}/ ${moment().tz("Perú/Lima").format("hh:mm z")}</font>` }
 		);
 		parse(tmpData, "<font>Menú</font>");
 	}
